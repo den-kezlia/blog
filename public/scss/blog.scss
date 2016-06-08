@@ -1,5 +1,6 @@
 @import "normalize";
 @import "variables";
+@import "header";
 
 * {
   box-sizing: border-box;
@@ -18,6 +19,10 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 p {
   text-indent: 20px;
 }
@@ -31,10 +36,6 @@ p {
 
 .content-inner {
   padding: 20px 40px;
-}
-
-.posts {
-  margin-top: 40px;
 }
 
 .item {
