@@ -345,6 +345,11 @@ header {
   width: 100%;
   height: 60px;
   border-bottom: 1px solid #008dde; }
+  header .logo {
+    position: absolute; }
+    header .logo img {
+      height: 59px;
+      width: auto; }
   header h1 {
     margin: 0;
     line-height: 60px; }
@@ -364,7 +369,7 @@ body {
   font-family: Helvetica, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'PT Serif', serif;
+  font-family: "Forum", cursive;
   text-align: center; }
 
 a {
