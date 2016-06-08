@@ -46,7 +46,11 @@ app.get('/', function (req, res) {
 });
 
 app.param('id', function (req, res, next, id) {
-    item = posts[id - 1];
+    for (var iterator = 0; iterator < posts.length; iterator++) {
+        if (posts[iterator].id == id) {
+            item = posts[iterator];
+        }
+    }
     next();
 });
 
