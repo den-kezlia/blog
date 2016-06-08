@@ -4,7 +4,8 @@ block content
     section.posts
         for item in posts
             article.item
-                h2.item__title= item.title
+                h2.item__title
+                    a(href='/page/' + item.id)= item.title
                 .item__text!= item.content
                 .item-info
                     .item-info__author= item.author

@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    section.posts
+        article.item
+            h2.item__title= item.title
+            .item__text!= item.content
+            .item-info
+                .item-info__author= item.author
+                .item-info__date= item.date
+    .back
+        a(href='/') <- Back

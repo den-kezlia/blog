@@ -6,6 +6,7 @@ app.use(express.static(publicFolder));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
+var item = null;
 var posts = [{
         id: '1',
         title: 'Блог',
@@ -42,6 +43,19 @@ var posts = [{
 
 app.get('/', function (req, res) {
     res.render('pages/index', {posts: posts});
+});
+
+app.param('id', function (req, res, next, id) {
+    item = posts[id - 1];
+    next();
+});
+
+app.get('/page/:id', function (req, res) {
+    if (item) {
+        res.render('pages/item', {item: item});
+    } else {
+        res.render('pages/page-not-found');
+    }
 });
 
 app.listen(3000);

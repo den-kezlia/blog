@@ -373,7 +373,10 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #282828; }
+  a:hover {
+    color: #008dde; }
 
 p {
   text-indent: 20px; }
