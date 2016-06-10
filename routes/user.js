@@ -6,7 +6,7 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-    res.render('user/login', {user: req.data});
+    res.render('user/login', {user: req.body.login});
 });
 
 module.exports = router;
