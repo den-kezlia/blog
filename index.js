@@ -1,65 +1,21 @@
 var express = require('express');
 var app = express();
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
+var session      = require('express-session');
+
+// Routers
+var blog = require('./routes/blog');
+var user = require('./routes/user');
 
 var publicFolder = __dirname + '/public';
 app.use(express.static(publicFolder));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
-var item = null;
-var posts = [{
-        id: '3',
-        title: 'ToDo',
-        author: 'Den Kezlia',
-        date: '17.04.2016',
-        content: '<p>Начал использовать Todoist для ежедневных задач. Удобно, просто и легкий дизайн. В бесплатной версии только не' +
-        'хватает уведомлений. </p>' +
-        '<p>Личные проекты веду в Trello. Подумываю использовать гитхабовские задачи. Хоть и есть интеграция Trello с Phpshtorm, ' +
-        'но я всегда был приверженцем централизованной системы. Хочется, чтобы был некий комбайн, в котором будут все нужные сервисы.' +
-        'И при этом легкий, понятный и красивый. Люблю красивый дизайн приложений.</p>'
-    }, {
-        id: '2',
-        title: 'Блог',
-        author: 'Den Kezlia',
-        date: '07.04.2016',
-        content: '<p>Еще не решил какую платформу буду использовать для блога. ' +
-        'В будущем, обучаясь, хочу написать что-то свое. ' +
-        'А пока либо установлю вордпрес, либо буду использовать какой-то сторонний сервис.</p>'
-    }, {
-        id: '1',
-        title: 'Введение. Или подзадачи',
-        author: 'Den Kezlia',
-        date: '01.04.2016',
-        content: '<p>Давно понимаю, что большие задачи нужно делить на подзадачи. Иначе есть шанс столкнуться с тем,' +
-        'что можно так и не приступить к решению задачи, опосаясь объема и не понимания, с какой же стороны к ней подойти.' +
-        'И часто так бывает, что в результате ничего и не делается. </p>' +
-        '<p>Возникали моменты, когда начинаешь сам с собой или с третьей субличностью филосовстовать на тему, на сколько же ' +
-        'должна быть маленькая задача, молв ее можно до бесконечности делить. И снова попасть в ловушку размышлений,' +
-        ' так ничего и не сделав. </p>' +
-        '<p>Создание блога тоже своего рода большая задача. И я уже говорил, что платформу хочется написать самому в качестве обучения.' +
-        'И вот снова ловушка - мысли для постов могут появляться, а функционала еще нет. И одна из моих подзадач была вывести Hello World на Node js.' +
-        'Так а почему "Hello World" не переделать в первые два поста блога?</p>'
-    }];
-
-app.get('/', function (req, res) {
-    res.render('pages/index', {posts: posts});
-});
-
-app.param('id', function (req, res, next, id) {
-    for (var iterator = 0; iterator < posts.length; iterator++) {
-        if (posts[iterator].id == id) {
-            item = posts[iterator];
-        }
-    }
-    next();
-});
-
-app.get('/page/:id', function (req, res) {
-    if (item) {
-        res.render('pages/item', {item: item});
-    } else {
-        res.render('pages/page-not-found');
-    }
-});
+app.get('/', blog);
+app.get('/post/:id', blog);
+app.get('/login', user);
+app.post('/login', user);
 
 app.listen(3000);
