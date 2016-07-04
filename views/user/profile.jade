@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    h2 Profile
+    .login= user.login
+    .name= user.name
+
+    a(href='/create') Create Post
+    br
+    a(href='/profile/edit') Edit Profile

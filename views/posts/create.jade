@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    h2 Create Post
+
+    form(action='/create' method='post')
+        .form-row
+            label(for='title') Title
+            input(type='text', id='title', name='title')
+        .form-row
+            label(for='content') Content
+            textarea(id='content', name='content')
+        .form-row
+            button(type='submit') Submit

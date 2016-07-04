@@ -3,13 +3,19 @@ var app             = express();
 var port            = 3000;
 var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
+var mongoose        = require('mongoose');
 var passport        = require('passport');
 var flash           = require('connect-flash');
 var session         = require('express-session');
+var morgan          = require('morgan');
 
 // Configs
 var publicFolder = __dirname + '/public';
+var configDB = require('./config/database');
+mongoose.connect(configDB.url);
+require('./config/passport')(passport);
 
+app.use(morgan('dev'));
 app.use(express.static(publicFolder));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -25,14 +31,9 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 // Routers
-var blog = require('./routes/blog');
-var user = require('./routes/user');
-
-app.get('/', blog);
-app.get('/post/:id', blog);
-app.get('/login', user);
-app.post('/login', user);
+require('./routes/index')(app, passport);
 
 app.listen(port);
