@@ -2,11 +2,12 @@ extends ../layout
 
 block content
     section.posts
-        for item in posts
+        - var collection = JSON.parse(posts)
+        for item in collection
             article.item
                 h2.item__title
-                    a(href='/post/' + item.id)= item.title
+                    a(href='/post/' + item.alias)= item.title
                 .item__text!= item.content
                 .item-info
-                    .item-info__author= item.author
+                    .item-info__author= item.author.name
                     .item-info__date= item.date

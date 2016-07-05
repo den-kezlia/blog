@@ -1,12 +1,14 @@
 extends ../layout
 
 block content
+    - var collection = JSON.parse(post)
     section.posts
-        article.item
-            h2.item__title= item.title
-            .item__text!= item.content
-            .item-info
-                .item-info__author= item.author
-                .item-info__date= item.date
+        for item in collection
+            article.item
+                h2.item__title= item.title
+                .item__text!= item.content
+                .item-info
+                    .item-info__author= item.author.name
+                    .item-info__date= item.date
     .back
         a(href='/') <- Back

@@ -17,6 +17,7 @@
     "body-parser": "~1.14.2",
     "connect-flash": "~0.1.1",
     "mongoose" : "~4.4.20",
+    "mongoose-slug-generator" : "~1.0.4",
     "bcrypt-nodejs" : "latest",
     "morgan": "~1.0.0"
   },

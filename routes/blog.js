@@ -1,5 +1,9 @@
+var Posts       = require('./../models/post');
+var User       = require('./../models/user');
+var PostCreate = require('./../models/postCreate');
+
 module.exports = function (app) {
-    var item = null;
+    /*var item = null;
     var posts = [{
         id: '4',
         title: 'Правила',
@@ -23,7 +27,7 @@ module.exports = function (app) {
         id: '2',
         title: 'Блог',
         author: 'Den Kezlia',
-        date: '07.04.2016',
+        date: '01.04.2016',
         content: '<p>Еще не решил какую платформу буду использовать для блога. ' +
         'В будущем, обучаясь, хочу написать что-то свое. ' +
         'А пока либо установлю вордпрес, либо буду использовать какой-то сторонний сервис.</p>'
@@ -31,7 +35,7 @@ module.exports = function (app) {
         id: '1',
         title: 'Введение. Или подзадачи',
         author: 'Den Kezlia',
-        date: '01.04.2016',
+        date: '07.04.2016',
         content: '<p>Давно понимаю, что большие задачи нужно делить на подзадачи. Иначе есть шанс столкнуться с тем,' +
         'что можно так и не приступить к решению задачи, опосаясь объема и не понимания, с какой же стороны к ней подойти.' +
         'И часто так бывает, что в результате ничего и не делается. </p>' +
@@ -41,27 +45,57 @@ module.exports = function (app) {
         '<p>Создание блога тоже своего рода большая задача. И я уже говорил, что платформу хочется написать самому в качестве обучения.' +
         'И вот снова ловушка - мысли для постов могут появляться, а функционала еще нет. И одна из моих подзадач была вывести Hello World на Node js.' +
         'Так а почему "Hello World" не переделать в первые два поста блога?</p>'
-    }];
+    }];*/
+
+
 
     app.get('/', function(req, res, next) {
-        res.render('posts/all', {posts: posts});
+        Posts.find().sort({date: -1}).populate('author').exec(function(err, items) {
+            if (err)
+                res.render('posts/all');
+
+            var posts = JSON.stringify(items);
+            res.render('posts/all', {posts: posts});
+        });
     });
 
     app.param('id', function (req, res, next, id) {
-        for (var iterator = 0; iterator < posts.length; iterator++) {
-            if (posts[iterator].id == id) {
-                item = posts[iterator];
-            }
-        }
-        next();
+        Posts.find({alias: id}).populate('author').exec(function(err, item) {
+            if (err)
+                res.render('posts/all');
+
+            var post = JSON.stringify(item);
+            next();
+        });
     });
 
     app.get('/post/:id', function (req, res) {
-        if (item) {
-            res.render('posts/item', {item: item});
-        } else {
-            res.render('page-not-found');
-        }
+        Posts.find({alias: req.params.id}).populate('author').exec(function(err, item) {
+            if (err)
+                res.render('posts/all');
+
+            var post = JSON.stringify(item);
+
+            if (post) {
+                res.render('posts/item', {post: post});
+            } else {
+                res.render('page-not-found');
+            }
+        });
     });
 
+    app.get('/create', isLoggedIn, function (req, res, next) {
+        res.render('posts/create');
+    });
+    app.post('/create', isLoggedIn, function (req, res, next) {
+        PostCreate.create(req, res, next);
+    });
 };
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/');
+}
+
