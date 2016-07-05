@@ -33,6 +33,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    res.locals.isLoggedIn = function() {
+        return req.user != null;
+    };
+
+    next();
+});
 // Routers
 require('./routes/index')(app, passport);
 

@@ -5,5 +5,8 @@ header
                 img(src='/images/logo.png', alt='Arche Blog', title='Arche Blog')
             h1
                 a(href='/') Blog
-            a.login(href='/login') Login
-            a.login(href='/profile') Profile
+
+            if isLoggedIn()
+                a.login(href='/profile') Profile
+            else
+                a.login(href='/login') Login
