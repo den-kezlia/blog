@@ -10,5 +10,10 @@ block content
                 .item-info
                     .item-info__author= item.author.name
                     .item-info__date= item.date
+                if isLoggedIn()
+                    .edit
+                        a(href='/post/' + item.link + '/edit') Edit post
+                    .delete
+                        a(href='/post/' + item.link + '/remove') Delete post
     .back
         a(href='/') <- Back

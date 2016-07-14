@@ -6,7 +6,7 @@ block content
         for item in collection
             article.item
                 h2.item__title
-                    a(href='/post/' + item.alias)= item.title
+                    a(href='/post/' + item.link)= item.title
                 .item__text!= item.content
                 .item-info
                     .item-info__author= item.author.name

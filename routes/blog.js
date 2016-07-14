@@ -59,18 +59,8 @@ module.exports = function (app) {
         });
     });
 
-    app.param('id', function (req, res, next, id) {
-        Posts.find({alias: id}).populate('author').exec(function(err, item) {
-            if (err)
-                res.render('posts/all');
-
-            var post = JSON.stringify(item);
-            next();
-        });
-    });
-
     app.get('/post/:id', function (req, res) {
-        Posts.find({alias: req.params.id}).populate('author').exec(function(err, item) {
+        Posts.find({link: req.params.id}).populate('author').exec(function(err, item) {
             if (err)
                 res.render('posts/all');
 
@@ -82,6 +72,27 @@ module.exports = function (app) {
                 res.render('page-not-found');
             }
         });
+    });
+
+    app.get('/post/:link/edit', isLoggedIn, function (req, res) {
+        Posts.find({link: req.params.link}).populate('author').exec(function(err, item) {
+            if (err)
+                res.render('posts/all');
+
+            var post = JSON.stringify(item);
+
+            if (post) {
+                res.render('posts/edit', {post: post});
+            } else {
+                res.render('page-not-found');
+            }
+        });
+    });
+    app.post('/post/:link/edit', isLoggedIn, function(req, res, next) {
+        PostCreate.edit(req, res, next);
+    });
+    app.get('/post/:link/remove', isLoggedIn, function(req, res, next) {
+        PostCreate.remove(req, res, next);
     });
 
     app.get('/create', isLoggedIn, function (req, res, next) {

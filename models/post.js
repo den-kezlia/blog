@@ -5,7 +5,7 @@ mongoose.plugin(slug);
 var postSchema = mongoose.Schema({
     title: String,
     content: String,
-    alias: {
+    link: {
         type: String,
         slug: 'title',
         unique: true
