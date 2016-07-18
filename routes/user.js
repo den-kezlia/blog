@@ -1,4 +1,4 @@
-var Profile = require('./../models/profile');
+var profileModel = require('./../models/profileModel');
 
 module.exports = function (app, passport) {
     app.get('/login', function(req, res, next) {
@@ -34,7 +34,7 @@ module.exports = function (app, passport) {
         });
     });
     app.post('/profile/edit', function(req, res, next) {
-        Profile.edit(req, res);
+        profileModel.edit(req, res);
     });
 };
 

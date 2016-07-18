@@ -1,6 +1,6 @@
 var Posts       = require('./../models/post');
 var User       = require('./../models/user');
-var PostCreate = require('./../models/postCreate');
+var PostModel = require('./../models/postModel');
 
 module.exports = function (app) {
     /*var item = null;
@@ -89,17 +89,17 @@ module.exports = function (app) {
         });
     });
     app.post('/post/:link/edit', isLoggedIn, function(req, res, next) {
-        PostCreate.edit(req, res, next);
+        PostModel.edit(req, res, next);
     });
     app.get('/post/:link/remove', isLoggedIn, function(req, res, next) {
-        PostCreate.remove(req, res, next);
+        PostModel.remove(req, res, next);
     });
 
     app.get('/create', isLoggedIn, function (req, res, next) {
         res.render('posts/create');
     });
     app.post('/create', isLoggedIn, function (req, res, next) {
-        PostCreate.create(req, res, next);
+        PostModel.create(req, res, next);
     });
 };
 
