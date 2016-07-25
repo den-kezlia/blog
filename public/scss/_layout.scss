@@ -1,0 +1,23 @@
+.content {
+  width: 90%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-bottom: 100px;
+}
+
+.sidebar {
+  width: 10%;
+  position: fixed;
+  left: 0;
+  background: $nero-dark;
+}
+
+.footer {
+  position: fixed;
+  width: 90%;
+  bottom: 0;
+  right: 0;
+  height: 100px;
+  background: $nero-dark;
+}

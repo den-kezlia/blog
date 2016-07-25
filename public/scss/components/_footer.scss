@@ -1,0 +1,46 @@
+.footer {
+  .nav {
+    height: 100%;
+  }
+
+  .nav-link {
+    width: 50%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    line-height: 100px;
+
+    &:first-child {
+      border-right: 1px solid $nero;
+
+      &:before {
+        position: relative;
+        content: '';
+        display: inline-block;
+        top: 3px;
+        width: 54px;
+        height: 15px;
+        background: url(../images/svg/arrow.svg) no-repeat;
+        background-size: contain;
+        fill: $white;
+        margin-right: 20px;
+      }
+    }
+
+    &:last-child {
+      &:after {
+        position: relative;
+        content: '';
+        display: inline-block;
+        top: 3px;
+        width: 54px;
+        height: 15px;
+        background: url(../images/svg/arrow.svg) no-repeat;
+        background-size: contain;
+        fill: $white;
+        margin-left: 20px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

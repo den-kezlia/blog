@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#main,
+.sidebar,
+.content {
+  height: 100%;
+}
+
+body {
+  background: $bg;
+  color: $color;
+  font-size: 14px;
+  line-height: 21px;
+  font-family: $font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font2;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: $color;
+  &:hover {
+    color: $color2;
+  }
+}
+
+p {
+  text-indent: 20px;
+}
