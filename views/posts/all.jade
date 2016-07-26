@@ -4,7 +4,7 @@ block content
     section.posts
         - var collection = JSON.parse(posts)
         for item in collection
-            article.item
+            article.item.js-bgstyle
                 .item-inner
                     a.item__image(href='/post/' + item.link)
                     h2.item__title

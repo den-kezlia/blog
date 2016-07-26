@@ -2,7 +2,7 @@ extends ../layout
 
 block content
     - var collection = JSON.parse(post)
-    section.posts
+    section.post
         for item in collection
             article.item
                 h2.item__title= item.title
@@ -15,5 +15,5 @@ block content
                         a(href='/post/' + item.link + '/edit') Edit post
                     .delete
                         a(href='/post/' + item.link + '/remove') Delete post
-    .back
-        a(href='/') <- Back
+        .back
+            a(href='/') Назад
