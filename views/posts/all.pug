@@ -2,6 +2,10 @@ extends ../layout
 
 block content
     section.posts
+        .posts__line.posts__line-left
+        .posts__line.posts__line-middle
+        .posts__line.posts__line-right
+
         - var collection = JSON.parse(posts)
         for item in collection
             article.item.js-bgstyle

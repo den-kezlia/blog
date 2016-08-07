@@ -1,6 +1,13 @@
 App = {
     init: function() {
         this.BGLinkStyles();
+        this.scrollPage();
+    },
+
+    scrollPage: function() {
+        $(window).on('scroll', function() {
+
+        });
     },
 
     BGLinkStyles: function() {

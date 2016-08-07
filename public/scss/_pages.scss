@@ -1,21 +1,41 @@
 .posts {
   height: 100%;
 
+  &__line {
+    position: fixed;
+    top: 0;
+    width: 33%;
+    height: 5px;
+    z-index: 1;
+
+    &-left {
+      background: $golden-yellow;
+    }
+
+    &-middle {
+      background: $medium-spring-green;
+      left: 33%;
+    }
+
+    &-right {
+      background: $outrageous-orange;
+      left: 66%;
+    }
+  }
+
   .item {
     width: 33.333%;
     height: 100%;
     padding: 0 20px;
     float: left;
-    border-top: 5px solid;
     border-right: 1px solid $nero-dark;
+    border-bottom: 1px solid $nero-dark;
 
     &:hover {
       cursor: pointer;
     }
 
-    &:nth-child(1n) {
-      border-top-color: $golden-yellow;
-
+    &:nth-of-type(1n) {
       &:hover {
 
       }
@@ -32,9 +52,7 @@
         }
       }
     }
-    &:nth-child(2n) {
-      border-top-color: $medium-spring-green;
-
+    &:nth-of-type(2n) {
       .item__image {
         &:after {
           right: 0;
@@ -48,8 +66,7 @@
         }
       }
     }
-    &:nth-child(3n) {
-      border-top-color: $outrageous-orange;
+    &:nth-of-type(3n) {
       border-right: none;
 
       .item__image {
