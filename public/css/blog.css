@@ -432,6 +432,8 @@ header {
   float: left;
   text-align: center;
   line-height: 100px; }
+  .footer .nav-link:hover {
+    color: #fff; }
   .footer .nav-link:first-child {
     border-right: 1px solid #272727; }
     .footer .nav-link:first-child:before {
