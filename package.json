@@ -6,7 +6,7 @@
   "homepage": "http://arche.sounex.com/blog",
   "dependencies": {
     "express": "~4.13.4",
-    "jade": "~1.11.0",
+    "pug": "2.0.0-beta4",
     "cookie": "0.1.5",
     "debug": "~2.2.0",
     "parseurl": "~1.3.1",
