@@ -96,6 +96,11 @@
     &__title {
       margin: 30px 0;
     }
+
+    &__text {
+      height: 150px;
+      overflow: hidden;
+    }
   }
 }
 

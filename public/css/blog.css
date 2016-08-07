@@ -540,6 +540,9 @@ header {
         background: #272727; }
     .posts .item__title {
       margin: 30px 0; }
+    .posts .item__text {
+      height: 150px;
+      overflow: hidden; }
 
 .post {
   padding: 20px;
