@@ -147,11 +147,16 @@
     }
 
     &__iterator {
-      position: absolute;
-      bottom: 20px;
+      margin-top: 20px;
       font-family: $font3;
       font-size: 24px;
       color: $nero-dark;
+
+      @include respond(large-up) {
+        position: absolute;
+        bottom: 20px;
+        margin: 0;
+      }
     }
   }
 }
