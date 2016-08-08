@@ -659,9 +659,8 @@ header {
         background: #272727; }
     .posts .item__title {
       margin: 30px 0; }
-    .posts .item__text {
-      height: 150px;
-      overflow: hidden; }
+      .posts .item__title a:hover {
+        text-decoration: underline; }
     .posts .item__iterator {
       position: absolute;
       bottom: 20px;

@@ -19,5 +19,5 @@ block content
                     a.item__image(href='/post/' + item.link)
                     h2.item__title
                         a(href='/post/' + item.link)= item.title
-                    .item__text!= item.content
+                    .item__text!= item.content.slice(0, 250)+' ...'
             - iterator--
