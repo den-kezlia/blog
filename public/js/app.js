@@ -1,12 +1,15 @@
 App = {
     init: function() {
+        this.menu();
         this.BGLinkStyles();
-        this.scrollPage();
     },
 
-    scrollPage: function() {
-        $(window).on('scroll', function() {
+    menu: function() {
+        var menu = $('#menu');
+        var submenu = $('#submenu');
 
+        menu.on('click', function() {
+            $('body').toggleClass('menu-active');
         });
     },
 
@@ -21,9 +24,15 @@ App = {
             var colorTwo = '#272727';
             var radius = 450;
 
-            if (element.hasClass('js-bgstyle__small')) {
+            if (element.hasClass('js-bgstyle__medium')) {
                 radius = 150;
                 colorOne = '#252525';
+                colorTwo = '#171717';
+            }
+
+            if (element.hasClass('js-bgstyle__small')) {
+                radius = 50;
+                colorOne = '#1f1f1f';
                 colorTwo = '#171717';
             }
 

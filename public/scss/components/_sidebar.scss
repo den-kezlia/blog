@@ -1,4 +1,14 @@
 .sidebar {
+  &-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $nero-dark;
+    z-index: 2;
+  }
+
   .logo {
     display: block;
     padding: 50px 0;
@@ -14,7 +24,7 @@
       }
     }
 
-    nav {
+    .home {
       position: relative;
       width: $nav-size;
       height: $main-cycle-size;
@@ -172,6 +182,52 @@
     position: absolute;
     bottom: 10px;
     left: 10px;
-    color: #777;
+    color: $light-gray;
+  }
+
+  .submenu {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: - $submenu-w;
+    width: $submenu-w;
+    height: 100%;
+    background: $nero-dark;
+    padding: 50px 10px;
+    transition: all 0.3s;
+
+    &-list {
+      margin: 0 0 20px 0;
+      padding: 0;
+
+      &__item {
+        list-style: none;
+        margin: 0;
+        border-bottom: 1px solid $nero;
+
+        a {
+          display: block;
+          padding: 7px 10px;
+        }
+      }
+    }
+
+    &__title {
+      color: $light-gray;
+      font-size: 12px;
+    }
+  }
+}
+
+body.menu-active {
+  overflow: hidden;
+  .submenu {
+    left: $sidebar-w;
+  }
+
+  .content,
+  .posts__lines {
+    left: $sidebar-w + $submenu-w;
+    transition: all 0.3s;
   }
 }

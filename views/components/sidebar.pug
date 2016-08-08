@@ -1,18 +1,34 @@
 #sidebar.sidebar
-    a.logo(href='/' title='Arche Blog')
-        nav#home.home
-            .line
-            .main-cycle.cycle
-            .center-button.blog
-            .center-button.version.nav-cycle
-            .left-cycle.cycle.nav-cycle
-            .right-cycle.cycle.nav-cycle
-            .inner-cycle.cycle
-                .cycle-home Blog
+    .sidebar-inner
+        a.logo(href='/' title='Arche Blog')
+            #home.home
+                .line
+                .main-cycle.cycle
+                .center-button.blog
+                .center-button.version.nav-cycle
+                .left-cycle.cycle.nav-cycle
+                .right-cycle.cycle.nav-cycle
+                .inner-cycle.cycle
+                    .cycle-home Blog
 
-    a.menu(href='#')
-        .menu__line
-        .menu__line
-        .menu__line
+        a.menu#menu(href='#')
+            .menu__line
+            .menu__line
+            .menu__line
 
-    .version ver 0.1.0
+        .version ver 0.1.0
+
+    .submenu#submenu
+        ul.submenu-list
+            li.submenu-list__item
+                a.submenu-list__item__link.js-bgstyle.js-bgstyle__small(href='http://arche.sounex.com') Arche
+            li.submenu-list__item
+                a.submenu-list__item__link.js-bgstyle.js-bgstyle__small(href='http://blog.arche.sounex.com') Blog
+
+        .submenu__title Admin Panel
+        ul.submenu-list
+            li.submenu-list__item
+                if isLoggedIn()
+                    a.submenu-list__item__link.js-bgstyle.js-bgstyle__small(href='/profile') Профиль
+                else
+                    a.submenu-list__item__link.js-bgstyle.js-bgstyle__small(href='/login') Вход

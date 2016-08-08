@@ -4,9 +4,10 @@
   &__lines {
     position: fixed;
     width: calc(100% - #{$sidebar-w});
-    right: 0;
+    left: $sidebar-w;
     top: 0;
     z-index: 1;
+    transition: all 0.3s;
   }
 
   &__lines-item {
@@ -148,7 +149,7 @@
   font-family: 'PT Sans', sans-serif;
   font-size: 12px;
   line-height: 1.5;
-  color: #777;
+  color: $light-gray;
 
   &:before {
     content: '';

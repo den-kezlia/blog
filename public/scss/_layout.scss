@@ -2,7 +2,7 @@
   width: calc(100% - #{$sidebar-w});
   position: absolute;
   top: 0;
-  right: 0;
+  left: $sidebar-w;
   padding-bottom: 100px;
 }
 
@@ -10,14 +10,13 @@
   width: $sidebar-w;
   position: fixed;
   left: 0;
-  background: $nero-dark;
 }
 
 .footer {
   position: fixed;
   width: calc(100% - #{$sidebar-w});
   bottom: 0;
-  right: 0;
+  left: $sidebar-w;
   height: 100px;
   background: $nero-dark;
 }
