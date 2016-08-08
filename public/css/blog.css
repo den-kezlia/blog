@@ -582,6 +582,11 @@ header {
     margin-bottom: 5px; }
   .sidebar .menu:hover {
     transform: rotate(-90deg); }
+.sidebar .version {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #777; }
 
 .posts {
   height: 100%; }
