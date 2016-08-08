@@ -1,5 +1,6 @@
 /* Sidebar */
 /* Menu */
+/* Viewports */
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
@@ -378,25 +379,42 @@ a {
 p {
   text-indent: 20px; }
 
+body {
+  padding-top: 60px; }
+
 .content {
-  width: calc(100% - 160px);
-  position: absolute;
-  top: 0;
-  left: 160px;
-  padding-bottom: 100px; }
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .content {
+      width: calc(100% - 160px);
+      position: absolute;
+      top: 0;
+      left: 160px;
+      padding-bottom: 100px; } }
 
 .sidebar {
-  width: 160px;
   position: fixed;
-  left: 0; }
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1; }
+  @media only screen and (min-width: 768px) {
+    .sidebar {
+      width: 160px;
+      left: 0;
+      height: 100%; } }
 
 .footer {
-  position: fixed;
-  width: calc(100% - 160px);
-  bottom: 0;
-  left: 160px;
-  height: 100px;
-  background: #171717; }
+  display: none; }
+  @media only screen and (min-width: 768px) {
+    .footer {
+      display: block;
+      position: fixed;
+      width: calc(100% - 160px);
+      bottom: 0;
+      left: 160px;
+      height: 100px;
+      background: #171717; } }
 
 header {
   display: none;
@@ -470,9 +488,13 @@ header {
   background: #171717;
   z-index: 2; }
 .sidebar .logo {
-  display: block;
-  padding: 50px 0;
+  display: none;
+  padding: 10px 0;
   text-align: center; }
+  @media only screen and (min-width: 768px) {
+    .sidebar .logo {
+      display: block;
+      padding: 50px 0; } }
   .sidebar .logo:hover .left-cycle {
     left: calc(50% + ( 80px - 49.44376px ) / 2); }
   .sidebar .logo:hover .right-cycle {
@@ -572,38 +594,62 @@ header {
 .sidebar .menu {
   display: block;
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background: #272727;
-  border-radius: 30px;
-  top: 50%;
-  left: 50%;
-  margin: -30px 0 0 -30px;
-  padding: 19px 16px 0;
+  border-radius: 20px;
+  padding: 12px 10px 0;
+  top: 10px;
+  left: 10px;
   transition: all 0.3s; }
+  @media only screen and (min-width: 768px) {
+    .sidebar .menu {
+      top: 50%;
+      left: 50%;
+      margin: -30px 0 0 -30px;
+      padding: 19px 16px 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 30px; } }
   .sidebar .menu__line {
     display: block;
     background: #008DDE;
-    height: 4px;
     width: 100%;
-    margin-bottom: 5px; }
+    height: 3px;
+    margin-bottom: 4px; }
+    @media only screen and (min-width: 768px) {
+      .sidebar .menu__line {
+        height: 4px;
+        margin-bottom: 5px; } }
   .sidebar .menu:hover {
     transform: rotate(-90deg); }
 .sidebar .version {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  top: 20px;
+  right: 10px;
   color: #777; }
+  @media only screen and (min-width: 768px) {
+    .sidebar .version {
+      right: initial;
+      top: initial;
+      left: 10px;
+      bottom: 10px; } }
 .sidebar .submenu {
   position: fixed;
   z-index: 1;
-  top: 0;
-  left: -200px;
-  width: 200px;
-  height: 100%;
+  left: 0;
+  top: -400px;
+  width: 100%;
   background: #171717;
-  padding: 50px 10px;
+  padding: 10px 10px;
   transition: all 0.3s; }
+  @media only screen and (min-width: 768px) {
+    .sidebar .submenu {
+      top: 0;
+      left: -200px;
+      width: 200px;
+      height: 100%;
+      padding: 50px 10px; } }
   .sidebar .submenu-list {
     margin: 0 0 20px 0;
     padding: 0; }
@@ -621,21 +667,30 @@ header {
 body.menu-active {
   overflow: hidden; }
   body.menu-active .submenu {
-    left: 160px; }
-  body.menu-active .content,
-  body.menu-active .posts__lines {
-    left: 360px;
-    transition: all 0.3s; }
+    top: 60px; }
+    @media only screen and (min-width: 768px) {
+      body.menu-active .submenu {
+        left: 160px;
+        top: inherit; } }
+  @media only screen and (min-width: 768px) {
+    body.menu-active .content,
+    body.menu-active .posts__lines {
+      left: 360px;
+      transition: all 0.3s; } }
 
 .posts {
   height: 100%; }
   .posts__lines {
-    position: fixed;
-    width: calc(100% - 160px);
-    left: 160px;
-    top: 0;
-    z-index: 1;
-    transition: all 0.3s; }
+    display: none; }
+    @media only screen and (min-width: 768px) {
+      .posts__lines {
+        display: block;
+        position: fixed;
+        width: calc(100% - 160px);
+        left: 160px;
+        top: 0;
+        z-index: 1;
+        transition: all 0.3s; } }
   .posts__lines-item {
     position: absolute;
     top: 0;
@@ -652,12 +707,14 @@ body.menu-active {
       left: 66.666%; }
   .posts .item {
     position: relative;
-    width: 33.333%;
-    height: 100%;
-    padding: 0 20px;
-    float: left;
-    border-right: 1px solid #171717;
+    padding: 20px;
     border-bottom: 1px solid #171717; }
+    @media only screen and (min-width: 768px) {
+      .posts .item {
+        width: 33.333%;
+        height: 100%;
+        float: left;
+        border-right: 1px solid #171717; } }
     .posts .item:last-child {
       margin-bottom: 100px; }
     .posts .item:nth-of-type(1n) .item__image:after {
@@ -677,26 +734,38 @@ body.menu-active {
       .posts .item:nth-of-type(3n) .item__title a {
         color: #ff652f; }
     .posts .item-inner {
-      position: relative;
-      height: 380px;
-      top: 50%;
-      margin-top: -190px; }
+      position: relative; }
+      @media only screen and (min-width: 768px) {
+        .posts .item-inner {
+          height: 380px;
+          top: 50%;
+          margin-top: -190px; } }
     .posts .item__image {
       position: relative;
       display: block;
-      width: 100px;
-      height: 100px;
+      width: 50px;
+      height: 50px;
       margin: 0 auto;
       background-color: #171717;
-      border-radius: 50px; }
+      border-radius: 25px; }
+      @media only screen and (min-width: 768px) {
+        .posts .item__image {
+          width: 100px;
+          height: 100px;
+          border-radius: 50px; } }
       .posts .item__image:after {
         content: '';
         display: block;
         position: absolute;
-        width: 65px;
-        height: 65px;
-        border-radius: 33px;
+        width: 33px;
+        height: 33px;
+        border-radius: 17px;
         background: #272727; }
+        @media only screen and (min-width: 768px) {
+          .posts .item__image:after {
+            width: 65px;
+            height: 65px;
+            border-radius: 33px; } }
     .posts .item__title {
       margin: 30px 0; }
       .posts .item__title a:hover {

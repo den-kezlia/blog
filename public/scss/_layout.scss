@@ -1,22 +1,44 @@
+body {
+  padding-top: 60px;
+  @include respond(large-up) {
+    padding-top: 0;
+  }
+}
+
 .content {
-  width: calc(100% - #{$sidebar-w});
-  position: absolute;
-  top: 0;
-  left: $sidebar-w;
-  padding-bottom: 100px;
+  width: 100%;
+
+  @include respond(large-up) {
+    width: calc(100% - #{$sidebar-w});
+    position: absolute;
+    top: 0;
+    left: $sidebar-w;
+    padding-bottom: 100px;
+  }
 }
 
 .sidebar {
-  width: $sidebar-w;
   position: fixed;
-  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+  @include respond(large-up) {
+    width: $sidebar-w;
+    left: 0;
+    height: 100%;
+  }
 }
 
 .footer {
-  position: fixed;
-  width: calc(100% - #{$sidebar-w});
-  bottom: 0;
-  left: $sidebar-w;
-  height: 100px;
-  background: $nero-dark;
+  display: none;
+  @include respond(large-up) {
+    display: block;
+    position: fixed;
+    width: calc(100% - #{$sidebar-w});
+    bottom: 0;
+    left: $sidebar-w;
+    height: 100px;
+    background: $nero-dark;
+  }
 }

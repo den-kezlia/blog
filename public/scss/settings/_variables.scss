@@ -33,3 +33,10 @@ $nav-transition: background 0.2s;
 $line-width: $main-cycle-size * $gold * 1.5;
 $border-style: $cycle-border $pacific-blue solid;
 $underline-transition: text-decoration 0.2s;
+
+/* Viewports */
+$small-breakpoint: 320px;
+$medium-breakpoint: 480px;
+$large-breakpoint: 768px;
+$desktop-breakpoint: 1024px;
+$desktop-up-breakpoint: 1440px;

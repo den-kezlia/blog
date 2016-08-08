@@ -10,9 +10,13 @@
   }
 
   .logo {
-    display: block;
-    padding: 50px 0;
+    display: none;
+    padding: 10px 0;
     text-align: center;
+    @include respond(large-up) {
+      display: block;
+      padding: 50px 0;
+    }
 
     &:hover {
       .left-cycle {
@@ -155,22 +159,36 @@
   .menu {
     display: block;
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     background: $nero;
-    border-radius: 30px;
-    top: 50%;
-    left: 50%;
-    margin: -30px 0 0 -30px;
-    padding: 19px 16px 0;
+    border-radius: 20px;
+    padding: 12px 10px 0;
+    top: 10px;
+    left: 10px;
     transition: all 0.3s;
+
+    @include respond(large-up) {
+      top: 50%;
+      left: 50%;
+      margin: -30px 0 0 -30px;
+      padding: 19px 16px 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+    }
 
     &__line {
       display: block;
       background: $pacific-blue;
-      height: 4px;
       width: 100%;
-      margin-bottom: 5px;
+      height: 3px;
+      margin-bottom: 4px;
+
+      @include respond(large-up) {
+        height: 4px;
+        margin-bottom: 5px;
+      }
     }
 
     &:hover {
@@ -180,21 +198,35 @@
 
   .version {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    top: 20px;
+    right: 10px;
     color: $light-gray;
+
+    @include respond(large-up) {
+      right: initial;
+      top: initial;
+      left: 10px;
+      bottom: 10px;
+    }
   }
 
   .submenu {
     position: fixed;
     z-index: 1;
-    top: 0;
-    left: - $submenu-w;
-    width: $submenu-w;
-    height: 100%;
+    left: 0;
+    top: -400px;
+    width: 100%;
     background: $nero-dark;
-    padding: 50px 10px;
+    padding: 10px 10px;
     transition: all 0.3s;
+
+    @include respond(large-up) {
+      top: 0;
+      left: - $submenu-w;
+      width: $submenu-w;
+      height: 100%;
+      padding: 50px 10px;
+    }
 
     &-list {
       margin: 0 0 20px 0;
@@ -222,12 +254,18 @@
 body.menu-active {
   overflow: hidden;
   .submenu {
-    left: $sidebar-w;
+    top: 60px;
+    @include respond(large-up) {
+      left: $sidebar-w;
+      top: inherit;
+    }
   }
 
   .content,
   .posts__lines {
-    left: $sidebar-w + $submenu-w;
-    transition: all 0.3s;
+    @include respond(large-up) {
+      left: $sidebar-w + $submenu-w;
+      transition: all 0.3s;
+    }
   }
 }
