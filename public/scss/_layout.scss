@@ -1,13 +1,14 @@
 .content {
-  width: 90%;
+  width: calc(100% - #{$sidebar-w});
   position: absolute;
   top: 0;
   right: 0;
   padding-bottom: 100px;
+  overflow: auto;
 }
 
 .sidebar {
-  width: 10%;
+  width: 160px;
   position: fixed;
   left: 0;
   background: $nero-dark;
@@ -15,7 +16,7 @@
 
 .footer {
   position: fixed;
-  width: 90%;
+  width: calc(100% - #{$sidebar-w});
   bottom: 0;
   right: 0;
   height: 100px;

@@ -1,3 +1,5 @@
+/* Sidebar */
+/* Menu */
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
@@ -377,21 +379,22 @@ p {
   text-indent: 20px; }
 
 .content {
-  width: 90%;
+  width: calc(100% - 160px);
   position: absolute;
   top: 0;
   right: 0;
-  padding-bottom: 100px; }
+  padding-bottom: 100px;
+  overflow: auto; }
 
 .sidebar {
-  width: 10%;
+  width: 160px;
   position: fixed;
   left: 0;
   background: #171717; }
 
 .footer {
   position: fixed;
-  width: 90%;
+  width: calc(100% - 160px);
   bottom: 0;
   right: 0;
   height: 100px;
@@ -462,11 +465,103 @@ header {
 
 .sidebar .logo {
   display: block;
-  width: 80%;
-  margin: 10%; }
-  .sidebar .logo__image {
-    width: 100%;
-    height: auto; }
+  padding: 50px 0;
+  text-align: center; }
+  .sidebar .logo:hover .left-cycle {
+    left: calc(50% + ( 80px - 49.44376px ) / 2); }
+  .sidebar .logo:hover .right-cycle {
+    left: calc(50% - ( 49.44376px + 80px) / 2); }
+  .sidebar .logo nav {
+    position: relative;
+    width: 129.44376px;
+    height: 80px;
+    display: inline-block; }
+    .sidebar .logo nav a:hover,
+    .sidebar .logo nav a.active {
+      background: #008DDE;
+      transition: background 0.2s; }
+      .sidebar .logo nav a:hover.cycle-home,
+      .sidebar .logo nav a.active.cycle-home {
+        background: none; }
+    .sidebar .logo nav .line {
+      display: none;
+      height: 1px;
+      width: 194.16px;
+      background: #008DDE;
+      position: absolute;
+      top: 40px;
+      margin-left: -32.35812px;
+      transform: rotate(-45deg); }
+    .sidebar .logo nav#home .line {
+      display: block; }
+  .sidebar .logo .cycle {
+    position: absolute;
+    text-align: center;
+    background: #272727;
+    border: 1px solid #008DDE;
+    display: block;
+    left: 50%;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); }
+  .sidebar .logo .main-cycle {
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    border-radius: 40px; }
+  .sidebar .logo .inner-cycle {
+    width: 49.44376px;
+    height: 49.44376px;
+    margin-top: 15.27812px;
+    margin-left: -24.72188px;
+    background: #fff;
+    font-size: 14px;
+    line-height: 49.44376px;
+    z-index: 1;
+    border: none;
+    border-radius: 24.72188px;
+    color: #272727; }
+    .sidebar .logo .inner-cycle a {
+      color: #272727;
+      width: 49.44376px;
+      height: 49.44376px;
+      display: block; }
+      .sidebar .logo .inner-cycle a:hover {
+        background: none;
+        color: #272727;
+        width: 51.44376px;
+        height: 51.44376px; }
+  .sidebar .logo .left-cycle,
+  .sidebar .logo .right-cycle {
+    width: 49.44376px;
+    height: 49.44376px;
+    top: 15.27812px;
+    line-height: 49.44376px;
+    border-radius: 24.72188px;
+    transition: all 0.3s; }
+  .sidebar .logo .left-cycle {
+    left: calc(50% - ( 49.44376px + 80px) / 2); }
+  .sidebar .logo .right-cycle {
+    left: calc(50% + ( 80px - 49.44376px ) / 2); }
+  .sidebar .logo .center-button {
+    background: #008DDE;
+    height: 40px;
+    width: 80px;
+    left: 50%;
+    margin-left: -40px;
+    text-align: center;
+    display: block;
+    background: #272727;
+    border: 1px solid #008DDE;
+    position: absolute;
+    border-radius: 40px 40px 0 0; }
+    .sidebar .logo .center-button span {
+      display: block;
+      margin-top: 15px; }
+    .sidebar .logo .center-button.version {
+      top: 40px;
+      border-radius: 0 0 40px 40px; }
+      .sidebar .logo .center-button.version span {
+        margin-top: 100px; }
 .sidebar .menu {
   display: block;
   position: absolute;
@@ -477,30 +572,38 @@ header {
   top: 50%;
   left: 50%;
   margin: -30px 0 0 -30px;
-  padding: 19px 16px 0; }
+  padding: 19px 16px 0;
+  transition: all 0.3s; }
   .sidebar .menu__line {
     display: block;
     background: #008DDE;
     height: 4px;
     width: 100%;
     margin-bottom: 5px; }
+  .sidebar .menu:hover {
+    transform: rotate(-90deg); }
 
 .posts {
   height: 100%; }
-  .posts__line {
+  .posts__lines {
     position: fixed;
+    width: calc(100% - 160px);
+    right: 0;
+    top: 0; }
+  .posts__lines-item {
+    position: absolute;
     top: 0;
-    width: 33%;
+    width: 33.333%;
     height: 5px;
     z-index: 1; }
-    .posts__line-left {
+    .posts__lines-item-left {
       background: #FFE400; }
-    .posts__line-middle {
+    .posts__lines-item-middle {
       background: #00ff99;
-      left: 33%; }
-    .posts__line-right {
+      left: 33.333%; }
+    .posts__lines-item-right {
       background: #ff652f;
-      left: 66%; }
+      left: 66.666%; }
   .posts .item {
     width: 33.333%;
     height: 100%;
@@ -528,9 +631,9 @@ header {
         color: #ff652f; }
     .posts .item-inner {
       position: relative;
-      height: 260px;
+      height: 380px;
       top: 50%;
-      margin-top: -130px; }
+      margin-top: -190px; }
     .posts .item__image {
       position: relative;
       display: block;

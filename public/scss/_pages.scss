@@ -1,10 +1,17 @@
 .posts {
   height: 100%;
 
-  &__line {
+  &__lines {
     position: fixed;
+    width: calc(100% - #{$sidebar-w});
+    right: 0;
     top: 0;
-    width: 33%;
+  }
+
+  &__lines-item {
+    position: absolute;
+    top: 0;
+    width: 33.333%;
     height: 5px;
     z-index: 1;
 
@@ -14,12 +21,12 @@
 
     &-middle {
       background: $medium-spring-green;
-      left: 33%;
+      left: 33.333%;
     }
 
     &-right {
       background: $outrageous-orange;
-      left: 66%;
+      left: 66.666%;
     }
   }
 
@@ -85,10 +92,9 @@
 
     &-inner {
       position: relative;
-      height: 260px;
-
+      height: 380px;
       top: 50%;
-      margin-top: -130px;
+      margin-top: -190px;
     }
 
     &__image {

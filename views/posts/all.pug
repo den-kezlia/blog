@@ -2,9 +2,10 @@ extends ../layout
 
 block content
     section.posts
-        .posts__line.posts__line-left
-        .posts__line.posts__line-middle
-        .posts__line.posts__line-right
+        .posts__lines
+            .posts__lines-item.posts__lines-item-left
+            .posts__lines-item.posts__lines-item-middle
+            .posts__lines-item.posts__lines-item-right
 
         - var collection = JSON.parse(posts)
         for item in collection

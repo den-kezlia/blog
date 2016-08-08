@@ -12,3 +12,21 @@ $color2: $pacific-blue;
 
 $font: Helvetica, Arial, sans-serif;
 $font2: 'Forum', cursive;
+
+/* Sidebar */
+$sidebar-w: 160px;
+
+/* Menu */
+$nav-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+$gold: 1.618;
+$cycle-border: 1px;
+$main-cycle-size: 80px;
+$main-cycle-font-size: 14px;
+$main-cycle-radius: $main-cycle-size / 2;
+$inner-cycle-size: $main-cycle-size / $gold;
+$sub-cycle-size: $main-cycle-size / $gold;
+$nav-size: $main-cycle-size + $sub-cycle-size;
+$nav-transition: background 0.2s;
+$line-width: $main-cycle-size * $gold * 1.5;
+$border-style: $cycle-border $pacific-blue solid;
+$underline-transition: text-decoration 0.2s;
