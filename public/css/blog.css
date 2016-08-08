@@ -383,8 +383,7 @@ p {
   position: absolute;
   top: 0;
   right: 0;
-  padding-bottom: 100px;
-  overflow: auto; }
+  padding-bottom: 100px; }
 
 .sidebar {
   width: 160px;
@@ -514,12 +513,13 @@ header {
     margin-top: 15.27812px;
     margin-left: -24.72188px;
     background: #fff;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 49.44376px;
     z-index: 1;
     border: none;
     border-radius: 24.72188px;
-    color: #272727; }
+    color: #272727;
+    font-family: "Poiret One", cursive; }
     .sidebar .logo .inner-cycle a {
       color: #272727;
       width: 49.44376px;
@@ -594,7 +594,8 @@ header {
     position: fixed;
     width: calc(100% - 160px);
     right: 0;
-    top: 0; }
+    top: 0;
+    z-index: 1; }
   .posts__lines-item {
     position: absolute;
     top: 0;
@@ -610,14 +611,15 @@ header {
       background: #ff652f;
       left: 66.666%; }
   .posts .item {
+    position: relative;
     width: 33.333%;
     height: 100%;
     padding: 0 20px;
     float: left;
     border-right: 1px solid #171717;
     border-bottom: 1px solid #171717; }
-    .posts .item:hover {
-      cursor: pointer; }
+    .posts .item:last-child {
+      margin-bottom: 100px; }
     .posts .item:nth-of-type(1n) .item__image:after {
       right: 0; }
     .posts .item:nth-of-type(1n) .item__title a {
@@ -660,6 +662,12 @@ header {
     .posts .item__text {
       height: 150px;
       overflow: hidden; }
+    .posts .item__iterator {
+      position: absolute;
+      bottom: 20px;
+      font-family: "Poiret One", cursive;
+      font-size: 24px;
+      color: #171717; }
 
 .post {
   padding: 20px;

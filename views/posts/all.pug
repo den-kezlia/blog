@@ -8,10 +8,16 @@ block content
             .posts__lines-item.posts__lines-item-right
 
         - var collection = JSON.parse(posts)
+        - var iterator = collection.length
         for item in collection
+            - var iteratorString = "" + iterator
+            - var pad = "00"
+            - var iteratorResult = pad.substring(0, pad.length - iteratorString.length) + iteratorString
             article.item.js-bgstyle
+                .item__iterator= iteratorResult
                 .item-inner
                     a.item__image(href='/post/' + item.link)
                     h2.item__title
                         a(href='/post/' + item.link)= item.title
                     .item__text!= item.content
+            - iterator--
