@@ -1,0 +1,68 @@
+button {
+  background: none;
+  border-radius: 0;
+  color: $white;
+  border: none;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  background: $pacific-blue;
+
+  &:hover {
+
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px $bg inset;
+  -webkit-text-fill-color: $light-gray !important;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+textarea {
+  background: none;
+  border: none;
+  color: $light-gray;
+  padding-right: 20px;
+  height: 80px;
+  width: 100%;
+  outline: none;
+  transition: all 0.3s;
+
+  &:focus {
+    border-bottom: none;
+    color: $white;
+  }
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $light-gray;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $light-gray;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $light-gray;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $light-gray;
+  }
+}
+
+.form {
+  max-width: 600px;
+
+  &__row {
+    width: 50%;
+    float: left;
+    border-bottom: 2px solid $pacific-blue;
+  }
+
+  &__row-button {
+    width: 100%;
+  }
+}
