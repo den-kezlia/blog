@@ -8,10 +8,12 @@ block content
             label(for='title') Title
             input(type='text', id='title', name='title')
         .form-row
-            label(for='content') Content
-            textarea(id='content', name='content')
+            label(for='content-area') Content
+            textarea(id='content-area', name='content', class='ckeditor')
         .form-row
+            - var date = new Date()
+            - var dateString = date.getMonth() + 1 + '.' + date.getDate() + '.' + date.getFullYear()
             label(for='date') Date
-            input(id='date', name='date')
+            input(type='text', id='date', name='date', value= dateString, class='js-date-picker')
         .form-row
             button(type='submit') Submit

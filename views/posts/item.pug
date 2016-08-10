@@ -8,8 +8,10 @@ block content
                 h2.item__title= item.title
                 .item__text!= item.content
                 .item-info
+                    - var date = new Date(item.date)
+                    - var dateString = date.getMonth() + 1 + '.' + date.getDate() + '.' + date.getFullYear()
                     .item-info__author= item.author.name
-                    .item-info__date= item.date
+                    .item-info__date= dateString
                 if isLoggedIn()
                     .edit
                         a(href='/post/' + item.link + '/edit') Edit post

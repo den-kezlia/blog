@@ -2,6 +2,7 @@ App = {
     init: function() {
         this.menu();
         this.BGLinkStyles();
+        this.initForm();
     },
 
     menu: function() {
@@ -42,7 +43,15 @@ App = {
         item.hover(function() {}, function() {
             $(this).css('background', 'none');
         });
+    },
+
+    initForm: function() {
+        $('.js-date-picker').datepicker({
+            dateFormat: 'mm.dd.yy'
+        });
     }
 };
 
-App.init();
+$(document).ready(function() {
+    App.init();
+});

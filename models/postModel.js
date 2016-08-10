@@ -7,6 +7,9 @@ var postCreate = {
         post.title = req.body.title;
         post.content = req.body.content;
         post.author = req.user._id;
+        if (req.body.date) {
+            post.date = new Date(req.body.date);
+        }
 
         post.save(function(err) {
             if (err)
@@ -29,6 +32,7 @@ var postCreate = {
             post.title = req.body.title;
             post.content = req.body.content;
             post.author = req.user._id;
+            post.date = new Date(req.body.date);
             post.link = req.body.link;
 
             post.save(function(err) {
