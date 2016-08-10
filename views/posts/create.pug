@@ -11,6 +11,13 @@ block content
             label(for='content-area') Content
             textarea(id='content-area', name='content', class='ckeditor')
         .form-row
+            - var collection = JSON.parse(posts)
+            label(for='parentnode') Родительская Статья
+            select(name='parentnode', id='parentnode')
+                option(value='') Выбрать
+                for item in collection
+                    option(value= item._id)= item.title
+        .form-row
             - var date = new Date()
             - var dateString = date.getMonth() + 1 + '.' + date.getDate() + '.' + date.getFullYear()
             label(for='date') Date

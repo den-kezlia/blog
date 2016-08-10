@@ -1,7 +1,7 @@
 {
   "name": "blog",
   "description": "Blog on nodejs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Den Kezlia <den.kezlia@gmail.com>",
   "homepage": "http://arche.sounex.com/blog",
   "dependencies": {

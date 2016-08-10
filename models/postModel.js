@@ -7,8 +7,13 @@ var postCreate = {
         post.title = req.body.title;
         post.content = req.body.content;
         post.author = req.user._id;
+
         if (req.body.date) {
             post.date = new Date(req.body.date);
+        }
+
+        if (req.body.parentnode) {
+            post.parentNode = req.body.parentnode;
         }
 
         post.save(function(err) {
@@ -34,6 +39,10 @@ var postCreate = {
             post.author = req.user._id;
             post.date = new Date(req.body.date);
             post.link = req.body.link;
+
+            if (req.body.parentnode) {
+                post.parentNode = req.body.parentnode;
+            }
 
             post.save(function(err) {
                 if (err)

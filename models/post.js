@@ -17,31 +17,11 @@ var postSchema = mongoose.Schema({
     author: {
         type: mongoose.Schema.ObjectId,
         ref: 'User'
+    },
+    parentNode: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Post'
     }
 });
-
-postSchema.methods.editPost = function(req, res, next) {
-    this.findOne({'_id': req.body.id}, function (err, post) {
-        if (err) {
-            res.redirect(req.get('referrer'));
-        }
-
-        if (!post) {
-            res.redirect(req.get('referrer'));
-        }
-
-        post.title = req.body.title;
-        post.content = req.body.content;
-        post.author = req.user._id;
-        post.link = req.body.link;
-
-        post.save(function(err) {
-            if (err)
-                next();
-
-            res.redirect('/post/' + post.link);
-        })
-    });
-};
 
 module.exports = mongoose.model('Post', postSchema);

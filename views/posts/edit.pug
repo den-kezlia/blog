@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     - var collection = JSON.parse(post)
+    - var postsCollection = JSON.parse(posts)
     for item in collection
         h2 Edit Post
             span= item.name
@@ -14,6 +15,12 @@ block content
             .form-row
                 label(for='content-area') Content
                 textarea(id='content-area', name='content', class='ckeditor')= item.content
+            .form-row
+                label(for='parentnode') Родительская Статья
+                select(name='parentnode', id='parentnode')
+                    option(value='') Выбрать
+                    for parentItem in postsCollection
+                        option(value= parentItem._id, selected=(parentItem._id == item.parentNode))= parentItem.title
             .form-row
                 - var date = new Date(item.date)
                 - var dateString = date.getMonth() + 1 + '.' + date.getDate() + '.' + date.getFullYear()

@@ -36,7 +36,15 @@ module.exports = function (app) {
             var post = JSON.stringify(item);
 
             if (post) {
-                res.render('posts/edit', {post: post});
+                Posts.find().exec(function(err, items) {
+                    var posts = JSON.stringify(items);
+
+                    res.render('posts/edit', {
+                        post: post,
+                        posts: posts
+                    });
+
+                });
             } else {
                 res.render('page-not-found');
             }
@@ -50,7 +58,13 @@ module.exports = function (app) {
     });
 
     app.get('/create', isLoggedIn, function (req, res, next) {
-        res.render('posts/create');
+        Posts.find().exec(function(err, items) {
+            if (err)
+                res.render('posts/create');
+
+            var posts = JSON.stringify(items);
+            res.render('posts/create', {posts: posts});
+        });
     });
     app.post('/create', isLoggedIn, function (req, res, next) {
         PostModel.create(req, res, next);
@@ -63,4 +77,3 @@ function isLoggedIn(req, res, next) {
 
     res.redirect('/');
 }
-
