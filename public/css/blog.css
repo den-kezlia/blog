@@ -967,7 +967,9 @@ body.menu-active {
 
 .post {
   padding: 20px;
-  max-width: 600px; }
+  width: 100%;
+  max-width: 600px;
+  float: left; }
 
 .item-info {
   position: relative;
@@ -983,6 +985,14 @@ body.menu-active {
     left: 0;
     width: 40px;
     border-top: 2px solid #b7b7b7; }
+
+.widgets {
+  width: 300px;
+  float: left;
+  margin: 40px 0; }
+
+.widget {
+  padding: 20px 0; }
 
 .content-inner {
   padding: 0 20px; }

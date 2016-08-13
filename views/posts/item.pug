@@ -5,6 +5,7 @@ block content
     section.post
         for item in collection
             article.item
+                input(type='hidden', name='item-id', id='js-item__id' value= item._id)
                 h2.item__title= item.title
                 .item__text!= item.content
                 .item-info
@@ -19,3 +20,7 @@ block content
                         a(href='/post/' + item.link + '/remove') Delete post
         .back
             a(href='/') Назад
+
+    section.widgets
+        .widget
+            .widget__child-nodes.js-widget__child-nodes
