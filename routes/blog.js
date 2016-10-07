@@ -4,16 +4,10 @@ var PostModel = require('./../models/postModel');
 
 module.exports = function (app) {
     app.get('/', function(req, res, next) {
-        Posts.find().sort({date: -1}).populate('author').exec(function(err, items) {
-            if (err)
-                res.render('posts/all');
-
-            var posts = JSON.stringify(items);
-            res.render('posts/all', {posts: posts});
-        });
+        res.render('layout');
     });
 
-    app.get('/post/:id', function (req, res) {
+    /*app.get('/post/:id', function (req, res) {
         Posts.find({link: req.params.id}).populate('author').exec(function(err, item) {
             if (err)
                 res.render('posts/all');
@@ -26,7 +20,7 @@ module.exports = function (app) {
                 res.render('page-not-found');
             }
         });
-    });
+    });*/
 
     app.get('/post/:link/edit', isLoggedIn, function (req, res) {
         Posts.find({link: req.params.link}).populate('author').exec(function(err, item) {
