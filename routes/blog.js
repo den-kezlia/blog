@@ -3,10 +3,6 @@ var User       = require('./../models/user');
 var PostModel = require('./../models/postModel');
 
 module.exports = function (app) {
-    app.get('/', function(req, res, next) {
-        res.render('layout');
-    });
-
     /*app.get('/post/:id', function (req, res) {
         Posts.find({link: req.params.id}).populate('author').exec(function(err, item) {
             if (err)

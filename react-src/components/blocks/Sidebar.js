@@ -1,10 +1,32 @@
 var React = require('react');
+var Link = require('react-router').Link;
+var UserStore = require('../../stores/user');
 
 var Sidebar = module.exports = React.createClass({
+    getInitialState: function () {
+        return {
+            user: UserStore.all()[0]
+        }
+    },
+    mixins: [UserStore.mixin()],
     render: function () {
+        var ProfileLinks = '';
+
+        if (this.state.user) {
+            //TODO Add 'logout' router
+            ProfileLinks = (<li className="submenu-list__item">
+                <Link to={`/profile`} className="submenu-list__item__link js-bgstyle js-bgstyle__small">Профиль</Link>
+                <a href="/logout" className="submenu-list__item__link js-bgstyle js-bgstyle__small">Выйти</a>
+            </li>);
+        } else {
+            ProfileLinks = (<li className="submenu-list__item">
+                <Link to={`/login`} className="submenu-list__item__link js-bgstyle js-bgstyle__small">Вход</Link>
+            </li>);
+        }
+
         return (<div id="sidebar" className="sidebar">
             <div className="sidebar-inner">
-                <a href="/" className="logo" title='Arche Blog'>
+                <Link to='/' className="logo" title='Arche Blog'>
                     <span id="home" className="home">
                         <span className="line"></span>
                         <span className="main-cycle cycle"></span>
@@ -16,7 +38,7 @@ var Sidebar = module.exports = React.createClass({
                             <span className="cycle-home">Blog</span>
                         </span>
                     </span>
-                </a>
+                </Link>
 
                 <a href="#" className="menu" id="menu">
                     <span className="menu__line"></span>
@@ -33,17 +55,13 @@ var Sidebar = module.exports = React.createClass({
                         <a href="http://arche.sounex.com" className="submenu-list__item__link js-bgstyle js-bgstyle__small">Arche</a>
                     </li>
                     <li className="submenu-list__item">
-                        <a href="http://blog.arche.sounex.com" className="submenu-list__item__link js-bgstyle js-bgstyle__small">Blog</a>
+                        <Link to={`/`} className="submenu-list__item__link js-bgstyle js-bgstyle__small">Blog</Link>
                     </li>
                 </ul>
 
-                <div className="submenu__title">Admin Panel</div>
+                <div className="submenu__title">User Panel</div>
                 <ul className="submenu-list">
-                    <li className="submenu-list__item">
-                        <a href="/profile" className="submenu-list__item__link js-bgstyle js-bgstyle__small">Профиль</a>
-                        <a href="/logout" className="submenu-list__item__link js-bgstyle js-bgstyle__small">Выйти</a>
-                        <a href="/login" className="submenu-list__item__link js-bgstyle js-bgstyle__small">Вход</a>
-                    </li>
+                    {ProfileLinks}
                 </ul>
             </div>
         </div>);

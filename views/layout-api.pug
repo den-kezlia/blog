@@ -2,9 +2,7 @@ doctype html
 include components/head
 html
     body
+        script.
+            var USER = !{(typeof user === "undefined" ? false : JSON.stringify(user))}
         #main.clearfix
-            include components/sidebar
-            #content.content
-                block content
-            include components/footer
-        include components/footerUI
+        include components/footerUI-api
