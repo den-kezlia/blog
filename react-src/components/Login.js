@@ -7,7 +7,7 @@ var Login = React.createClass({
         return {
             login: '',
             password: '',
-            user: UserStore.all()[0]
+            user: UserStore.all()[0] || false
         };
     },
     mixins: [UserStore.mixin()],

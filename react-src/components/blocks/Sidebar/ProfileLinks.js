@@ -5,7 +5,7 @@ var UserStore = require('../../../stores/user');
 var ProfileLinks = React.createClass({
     getInitialState: function () {
         return {
-            user: UserStore.all()[0]
+            user: UserStore.all()[0] || false
         }
     },
     mixins: [UserStore.mixin()],
