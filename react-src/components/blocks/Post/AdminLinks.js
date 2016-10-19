@@ -13,7 +13,6 @@ var AdminLinks = React.createClass({
         var AdminLinks = '';
 
         if (this.state.user) {
-            //TODO Add 'logout' router
             AdminLinks = (
                 <Link to={`/post/edit/${this.props.id}`}>Edit</Link>
             );

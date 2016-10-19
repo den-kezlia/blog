@@ -9,7 +9,8 @@ var Post = React.createClass({
         var id = this.props.params.id;
 
         return {
-            post: PostStore.get(id) || false
+            post: PostStore.get(id) || false,
+            postsCollection: PostStore.all()
         }
     },
     mixins: [PostStore.mixin()],
@@ -40,6 +41,10 @@ var Post = React.createClass({
             var date = new Date(post.date);
             var dateString = date.getMonth() + 1 + '.' + date.getDate() + '.' + date.getFullYear();
 
+            var PostSelection = this.state.postsCollection.map(function (item) {
+                return (<option key={item._id} value={item._id} selected={post.parentNode === item._id}>{item.title}</option>);
+            });
+
             PostBlock = (<div>
                 <h2>Edit Post <span>{post.name}</span></h2>
 
@@ -51,14 +56,13 @@ var Post = React.createClass({
                     </div>
                     <div className="form-row">
                         <label htmlFor="content-area">Content</label>
-                        {/*TODO implement code editor*/}
                         <textarea ref="ckeditor" className="ckeditor" id="content-area" name="content" value={post.content}/>
                     </div>
                     <div className="form-row">
-                        {/*TODO Parent Node*/}
                         <label htmlFor="parentnode">Родительская Статья</label>
                         <select name="parentnode" id="parentnode">
                             <option value="">Выбрать</option>
+                            {PostSelection}
                         </select>
                     </div>
                     <div className="form-row">
