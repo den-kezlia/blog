@@ -1,9 +1,11 @@
 var React = require('react');
 var Link = require('react-router').Link;
+var Util = require('../../utils/util');
 
 var Article = module.exports = React.createClass({
     render: function () {
         var post = this.props.post;
+        var iterator = Util.iterator(this.props.iterator + 1);
 
         return (
             <article className="item js-bgstyle" >
@@ -14,7 +16,7 @@ var Article = module.exports = React.createClass({
                     </h2>
                     <div className="item__text" dangerouslySetInnerHTML={{__html: post.content.slice(0, 250)}} />
                 </div>
-                <div className="item__iterator">01</div>
+                <div className="item__iterator">{iterator}</div>
             </article>
         );
     }

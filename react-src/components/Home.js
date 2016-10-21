@@ -11,8 +11,8 @@ var Home = React.createClass({
     },
     mixins: [PostStore.mixin()],
     render: function () {
-        var items = this.state.posts.map(function (post) {
-            return <Article post={post} key={post._id} />;
+        var items = this.state.posts.map(function (post, iterator) {
+            return <Article post={post} key={post._id} iterator={iterator} />;
         });
 
         return (
