@@ -13,7 +13,7 @@ var App = React.createClass({
             <div className="">
                 <Sidebar user={this.state.user} />
 
-                <div id="content" className="content">
+                <div id="wrapper" className="wrapper">
                     {this.props.children}
                 </div>
 

@@ -24,6 +24,18 @@ var API = {
                 actions.loggined([data.user]);
             }
         });
+    },
+    editPost: function (data) {
+        utilUrl.post('/api/post/edit/' + data._id, data).then(function (data) {
+            if (typeof data.error !== 'undefined') {
+                // TODO add error Action
+                //_this.setState({error: data.error})
+            }
+
+            if (typeof data.post !== 'undefined') {
+                actions.editedPost(data.post);
+            }
+        });
     }
 };
 
@@ -40,6 +52,8 @@ dispatcher.register(function (action) {
         case constants.LOGIN:
             API.login(action.data);
             break;
+        case constants.EDIT_POST:
+            API.editPost(action.data);
     }
 });
 

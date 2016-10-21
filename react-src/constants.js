@@ -3,5 +3,7 @@ module.exports = {
     LOGIN: 'LOGIN',
     API_LOGIN: 'API_LOGIN',
     LOGGINED: 'LOGGINED',
-    GET_USER: 'GET_USER'
+    GET_USER: 'GET_USER',
+    EDIT_POST: 'EDIT_POST',
+    EDITED_POST: 'EDITED_POST'
 };

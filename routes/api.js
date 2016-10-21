@@ -33,5 +33,43 @@ module.exports = function (app, passport) {
             user =  Utils.makeUserSafe(user);
         }
         res.json([user]);
+    });
+
+    app.post('/api/post/edit/:id', isLoggedIn, function (req, res, next) {
+        Posts.findOne({'_id': req.body._id}, function (err, post) {
+            if (err) {
+                /*TODO implement error message*/
+                //res.redirect(req.get('referrer'));
+            }
+
+            if (!post) {
+                /*TODO implement not founded post message*/
+                //res.redirect(req.get('referrer'));
+            }
+
+            post.title = req.body.title;
+            post.content = req.body.content;
+            post.author = req.user._id;
+            post.date = new Date(req.body.date);
+            post.link = req.body.link;
+
+            if (req.body.parentNode) {
+                post.parentNode = req.body.parentNode;
+            }
+
+            post.save(function(err) {
+                if (err)
+                    next();
+
+                res.json({post: post});
+            })
+        });
     })
 };
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+    res.json({error: 'Not Auth'});
+}

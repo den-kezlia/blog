@@ -356,7 +356,7 @@ html,
 body,
 #main,
 .sidebar,
-.content {
+.wrapper {
   height: 100%; }
 
 body {
@@ -386,10 +386,10 @@ body {
     body {
       padding-top: 0; } }
 
-.content {
+.wrapper {
   width: 100%; }
   @media only screen and (min-width: 768px) {
-    .content {
+    .wrapper {
       width: calc(100% - 160px);
       position: absolute;
       top: 0;

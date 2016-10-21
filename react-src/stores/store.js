@@ -17,6 +17,15 @@ var storeMethods = {
         this._data.push(item);
         this.sort();
     },
+    update: function (data) {
+        /*TODO implement update function*/
+        var _this = this;
+        this._data.forEach(function (item, i) {
+            if (item._id === data._id) {
+                _this._data[i] = data;
+            }
+        });
+    },
     sort: function () {
         this._data.sort(function (a, b) {
             return +new Date(b.$created) - new Date(a.$created);

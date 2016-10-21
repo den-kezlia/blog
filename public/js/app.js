@@ -2,18 +2,15 @@ App = {
     init: function() {
         this.menu();
         this.BGLinkStyles();
-        this.initForm();
-    },
-
-    initPostPage: function() {
-        this.getChildNodes();
     },
 
     menu: function() {
         var menu = $('#menu');
         var submenu = $('#submenu');
 
-        menu.on('click', function() {
+        menu.on('click', function(event) {
+            event.preventDefault();
+
             $('body').toggleClass('menu-active');
         });
     },
@@ -47,42 +44,9 @@ App = {
         item.hover(function() {}, function() {
             $(this).css('background', 'none');
         });
-    },
-
-    initForm: function() {
-        $('.js-date-picker').datepicker({
-            dateFormat: 'mm.dd.yy'
-        });
-    },
-
-    getChildNodes: function() {
-        var childNodes = $('.js-widget__child-nodes');
-
-        if (childNodes.length > 0) {
-            var url = '/widget/childnodes/' + $('#js-item__id').val();
-
-            $.ajax({
-                url: url
-            }).done(function(data) {
-                if (data.length) {
-                    var html = '';
-
-                    for (var iterator = 0; iterator < data.length; iterator++) {
-                        var post = data[iterator];
-                        html = html + '<div class="child-post">';
-                            html = html + '<a href="' + post.link + '" class="child-post__title">' + post.title + '</a>';
-                            html = html + '<div class="child-post__short-description">' + post.content.slice(0, 150)  + '</div>';
-                        html = html + '</div>';
-                    }
-
-                    childNodes.html(html);
-                }
-            });
-        }
     }
 };
 
 $(document).ready(function() {
     App.init();
-    App.initPostPage();
 });
