@@ -73,11 +73,11 @@
     width: 100%;
     background: $nero-dark;
     padding: 10px 10px;
-    transition: all 0.3s;
+    transition: $transition-in;
 
     @include respond(large-up) {
       top: 0;
-      left: - $submenu-w;
+      left: - ($submenu-w - $sidebar-w);
       width: $submenu-w;
       height: 100%;
       padding: 50px 10px;
@@ -107,20 +107,24 @@
 }
 
 body.menu-active {
-  overflow: hidden;
   .submenu {
     top: 60px;
     @include respond(large-up) {
-      left: $sidebar-w;
       top: inherit;
     }
   }
 
-  .content,
-  .posts__lines {
-    @include respond(large-up) {
-      left: $sidebar-w + $submenu-w;
-      transition: all 0.3s;
+    .submenu,
+    .wrapper,
+    .footer {
+        @include respond(large-up) {
+            transform: translateX($submenu-w);
+            transition: $transition-out;
+        }
     }
+
+  .posts__lines {
+    transform: translateX(-$sidebar-w);
+    transition: $transition-out;
   }
 }

@@ -1,6 +1,5 @@
 var React = require('react');
 var Sidebar = require('./blocks/Sidebar');
-var Footer = require('./blocks/Footer');
 
 var App = React.createClass({
     getInitialState: function () {
@@ -13,11 +12,7 @@ var App = React.createClass({
             <div className="">
                 <Sidebar user={this.state.user} />
 
-                <div id="wrapper" className="wrapper">
-                    {this.props.children}
-                </div>
-
-                <Footer />
+				{this.props.children}
             </div>
         );
     }

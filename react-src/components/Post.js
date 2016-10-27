@@ -4,6 +4,7 @@ var Link = require('react-router').Link;
 var PostStore = require('../stores/posts');
 var Widget = require('./blocks/Widget');
 var AdminLinks = require('./blocks/Post/AdminLinks');
+var Footer = require('./blocks/Footer');
 
 var Post = React.createClass({
     getInitialState: function() {
@@ -43,7 +44,10 @@ var Post = React.createClass({
         }
 
         return (
-            <div>{PostBlock}</div>
+            <div>
+				<div className="wrapper page__post" id="wrapper">{PostBlock}</div>
+				<Footer />
+			</div>
         );
     }
 });

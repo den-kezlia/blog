@@ -135,7 +135,7 @@ var PostCreate = React.createClass({
         </div>);
 
         return (
-            <div>{PostBlock}</div>
+            <div className="wrapper" id="wrapper">{PostBlock}</div>
         );
     }
 });

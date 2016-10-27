@@ -1,7 +1,6 @@
 var React = require('react');
 var PostStore = require('../stores/posts');
 var Article = require('./blocks/Article');
-var HomeLines = require('./blocks/HomeLines');
 
 var Home = React.createClass({
     getInitialState: function () {
@@ -16,10 +15,13 @@ var Home = React.createClass({
         });
 
         return (
-            <section className="posts">
-                <HomeLines />
-                {items}
-            </section>
+        	<div>
+				<div id="wrapper" className="wrapper">
+					<section className="posts">
+						{items}
+					</section>
+				</div>
+			</div>
         );
     }
 });

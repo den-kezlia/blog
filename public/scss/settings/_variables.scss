@@ -22,7 +22,7 @@ $submenu-w: 200px;
 /* Menu */
 $nav-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 $gold: 1.618;
-$cycle-border: 1px;
+$cycle-border: 2px;
 $main-cycle-size: 80px;
 $main-cycle-font-size: 18px;
 $main-cycle-radius: $main-cycle-size / 2;
@@ -32,8 +32,9 @@ $nav-size: $main-cycle-size + $sub-cycle-size;
 $line-width: $main-cycle-size * $gold * 1.5;
 $border-style: $cycle-border $pacific-blue solid;
 
-$underline-transition: text-decoration 0.2s;
 $nav-transition: background 0.2s;
+$transition-in: all 0.2s ease-in;
+$transition-out: all 0.2s ease-out;
 
 /* Viewports */
 $small-breakpoint: 320px;

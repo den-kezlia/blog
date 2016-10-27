@@ -142,7 +142,7 @@ var PostEdit = React.createClass({
         }
 
         return (
-            <div>{PostBlock}</div>
+            <div className="wrapper" id="wrapper">{PostBlock}</div>
         );
     }
 });

@@ -9,6 +9,7 @@ var Article = module.exports = React.createClass({
 
         return (
             <article className="item js-bgstyle" >
+                <div className="item-line"></div>
                 <div className="item-inner">
                     <Link className="item__image" to={`/post/${post._id}`} />
                     <h2 className="item__title">

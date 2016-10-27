@@ -6,12 +6,18 @@ App = {
 
     menu: function() {
         var menu = $('#menu');
+        var wrapper = $('#wrapper');
         var submenu = $('#submenu');
+        var links = $('.js-link');
 
         menu.on('click', function(event) {
             event.preventDefault();
 
             $('body').toggleClass('menu-active');
+        });
+
+        links.add(wrapper).on('click', function () {
+            $('body').removeClass('menu-active');
         });
     },
 

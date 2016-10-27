@@ -5,7 +5,7 @@ var Logo = React.createClass({
     render: function () {
         return (
             <div>
-                <Link to='/' className="logo" title='Arche Blog'>
+                <Link to='/' className="logo js-link" title='Arche Blog'>
                     <span id="home" className="home">
                         <span className="line"></span>
                         <span className="main-cycle cycle"></span>

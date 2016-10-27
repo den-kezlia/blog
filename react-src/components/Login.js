@@ -75,7 +75,7 @@ var Login = React.createClass({
             </div>);
         }
 
-        return (<div>
+        return (<div className="wrapper" id="wrapper">
             {LoginForm}
         </div>);
     }
