@@ -64,7 +64,27 @@ module.exports = function (app, passport) {
                 res.json({post: post});
             })
         });
-    })
+    });
+
+    app.post('/api/post/create', isLoggedIn, function (req, res, next) {
+        var post = new Posts();
+
+        post.title = req.body.title;
+        post.content = req.body.content;
+        post.author = req.user._id;
+        post.date = new Date(req.body.date);
+
+        if (req.body.parentNode) {
+            post.parentNode = req.body.parentNode;
+        }
+
+        post.save(function(err) {
+            if (err)
+                next();
+
+            res.json({post: post});
+        })
+    });
 };
 
 function isLoggedIn(req, res, next) {

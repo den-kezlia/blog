@@ -1,10 +1,8 @@
 var React = require('react');
-var moment = require('moment');
 var PostStore = require('../stores/posts');
-var Widget = require('./blocks/Widget');
 var actions = require('../actions');
 
-var Post = React.createClass({
+var PostEdit = React.createClass({
     getInitialState: function() {
         /*TODO Implement Auth required functionality*/
         var id = this.props.params.id;
@@ -13,7 +11,7 @@ var Post = React.createClass({
         var dateString = false;
         if (post) {
             var date = new Date(post.date);
-            dateString = date.getMonth() + 1 + '.' + date.getDate() + '.' + date.getFullYear();
+            dateString = (date.getMonth() + 1) + '.' + date.getDate() + '.' + date.getFullYear();
         }
 
         return {
@@ -149,4 +147,4 @@ var Post = React.createClass({
     }
 });
 
-module.exports = Post;
+module.exports = PostEdit;
