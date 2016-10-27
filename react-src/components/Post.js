@@ -11,9 +11,18 @@ var Post = React.createClass({
         var id = this.props.params.id;
 
         return {
+        	id: this.props.params.id,
             post: PostStore.get(id) || false
         }
     },
+	componentWillReceiveProps: function (prop) {
+    	if (this.state.id !== prop.params.id) {
+			this.setState({
+				id: prop.params.id,
+				post: PostStore.get(prop.params.id)
+			});
+		}
+	},
     mixins: [PostStore.mixin()],
     render: function () {
         var PostBlock = '';
@@ -46,7 +55,7 @@ var Post = React.createClass({
         return (
             <div>
 				<div className="wrapper page__post" id="wrapper">{PostBlock}</div>
-				<Footer />
+				<Footer id={this.state.id} />
 			</div>
         );
     }
