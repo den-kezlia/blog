@@ -543,9 +543,9 @@ header {
   line-height: 100px; }
   .footer .nav-link:hover {
     color: #fff; }
-  .footer .nav-link:first-child {
+  .footer .nav-link-prev {
     border-right: 1px solid #272727; }
-    .footer .nav-link:first-child:before {
+    .footer .nav-link-prev:before {
       position: relative;
       content: '';
       display: inline-block;
@@ -556,18 +556,20 @@ header {
       background-size: contain;
       fill: #fff;
       margin-right: 20px; }
-  .footer .nav-link:last-child:after {
-    position: relative;
-    content: '';
-    display: inline-block;
-    top: 3px;
-    width: 54px;
-    height: 15px;
-    background: url(../images/svg/arrow.svg) no-repeat;
-    background-size: contain;
-    fill: #fff;
-    margin-left: 20px;
-    transform: rotate(180deg); }
+  .footer .nav-link-next {
+    float: right; }
+    .footer .nav-link-next:after {
+      position: relative;
+      content: '';
+      display: inline-block;
+      top: 3px;
+      width: 54px;
+      height: 15px;
+      background: url(../images/svg/arrow.svg) no-repeat;
+      background-size: contain;
+      fill: #fff;
+      margin-left: 20px;
+      transform: rotate(180deg); }
 
 @media only screen and (min-width: 768px) {
   .sidebar .logo {

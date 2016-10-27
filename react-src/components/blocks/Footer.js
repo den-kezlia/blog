@@ -13,7 +13,7 @@ var Footer = React.createClass({
 	componentWillReceiveProps: function (prop) {
 		if (this.state.id !== prop.id) {
 			this.setState({
-				id: this.props.id,
+				id: prop.id,
 				nextPost: PostStore.getNext(prop.id),
 				prevPost: PostStore.getPrev(prop.id)
 			});
@@ -21,15 +21,17 @@ var Footer = React.createClass({
 	},
 	mixins: [PostStore.mixin()],
     render: function () {
-		var prevLink = (<a href="/" className="nav-link js-bgstyle js-bgstyle__medium disabled">Нет Старее</a>);
-		var nextLink = (<a href="/" className="nav-link js-bgstyle js-bgstyle__medium disabled">Нет Новостей Новее</a>);
-
-		if (this.state.nextPost) {
-			prevLink = (<Link to={`/post/${this.state.prevPost._id}`} className="nav-link js-bgstyle js-bgstyle__medium">Старее - <span>{this.state.prevPost.title}</span></Link>);
-		}
+		var prevLink = '';
+		var nextLink = '';
 
 		if (this.state.prevPost) {
-			nextLink = (<Link to={`/post/${this.state.nextPost._id}`} className="nav-link js-bgstyle js-bgstyle__medium">Новее - <span>{this.state.nextPost.title}</span></Link>);
+			prevLink = (<Link to={`/post/${this.state.prevPost._id}`}
+							  className="nav-link nav-link-prev js-bgstyle js-bgstyle__medium">{this.state.prevPost.title}</Link>);
+		}
+
+		if (this.state.nextPost) {
+			nextLink = (<Link to={`/post/${this.state.nextPost._id}`}
+							  className="nav-link nav-link-next js-bgstyle js-bgstyle__medium">{this.state.nextPost.title}</Link>);
 		}
 
         return (<footer className="footer">

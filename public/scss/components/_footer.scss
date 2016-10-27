@@ -14,7 +14,7 @@
       color: $white;
     }
 
-    &:first-child {
+    &-prev {
       border-right: 1px solid $nero;
 
       &:before {
@@ -31,7 +31,8 @@
       }
     }
 
-    &:last-child {
+    &-next {
+      float: right;
       &:after {
         position: relative;
         content: '';
