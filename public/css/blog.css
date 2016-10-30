@@ -886,13 +886,39 @@ body.menu-active .posts__lines {
   transform: translateX(-160px);
   transition: all 0.2s ease-out; }
 
-.widget ul,
-.widget li {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-.widget p {
-  text-indent: 0; }
+.widget {
+  float: left;
+  width: 30%;
+  margin-top: 60px; }
+  .widget ul {
+    margin: 20px 0;
+    padding: 0; }
+  .widget ul,
+  .widget li {
+    list-style: none; }
+  .widget p {
+    text-indent: 0; }
+  .widget__item {
+    margin: 20px 0;
+    padding: 15px;
+    background: #1f1f1f;
+    border-radius: 4px;
+    position: relative; }
+    .widget__item-iterator {
+      font-family: "Poiret One", cursive;
+      font-size: 15px;
+      color: #5d5d5d;
+      position: absolute;
+      right: 10px; }
+    .widget__item-line {
+      position: absolute;
+      left: -40px; }
+    .widget__item-title {
+      text-align: center;
+      margin-top: 0;
+      font-size: 14px; }
+    .widget__item-description {
+      font-size: 12px; }
 
 .posts {
   height: 100%; }
@@ -1019,8 +1045,15 @@ body.menu-active .posts__lines {
 .post {
   padding: 20px;
   width: 100%;
-  max-width: 600px;
-  float: left; }
+  max-width: 50%;
+  float: left;
+  margin: 40px;
+  background: #1f1f1f;
+  border-radius: 4px; }
+  .post .item__admin-links {
+    margin-top: 10px; }
+    .post .item__admin-links a {
+      margin-right: 10px; }
 
 .item-info {
   position: relative;

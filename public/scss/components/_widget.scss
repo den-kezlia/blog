@@ -1,11 +1,49 @@
 .widget {
+    float: left;
+    width: 30%;
+    margin-top: 60px;
+
+    ul {
+        margin: 20px 0;
+        padding: 0;
+    }
+
     ul,
     li {
-        margin: 0;
-        padding: 0;
         list-style: none;
     }
     p {
         text-indent: 0;
+    }
+
+    &__item {
+        margin: 20px 0;
+        padding: 15px;
+        background: #1f1f1f;
+        border-radius: 4px;
+        position: relative;
+
+        &-iterator {
+            font-family: $font3;
+            font-size: 15px;
+            color: #5d5d5d;
+            position: absolute;
+            right: 10px;
+        }
+
+        &-line {
+            position: absolute;
+            left: -40px;
+        }
+
+        &-title {
+            text-align: center;
+            margin-top: 0;
+            font-size: 14px;
+        }
+
+        &-description {
+            font-size: 12px;
+        }
     }
 }

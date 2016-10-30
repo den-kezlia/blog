@@ -35,5 +35,19 @@ var PostStore = module.exports = require('./store').extend({
 		} else {
 			return this._data[nextItemNumber];
 		}
+	},
+	getChild: function (id) {
+		var post = this.get(id);
+		var child = [];
+
+		if (post) {
+			this._data.forEach(function (item, i) {
+				if (item.parentNode === id) {
+					child.push(item);
+				}
+			});
+		}
+
+		return child;
 	}
 });

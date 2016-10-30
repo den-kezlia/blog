@@ -48,7 +48,7 @@ var Post = React.createClass({
                         </div>
                     </section>
 
-                    <Widget/>
+                    <Widget id={post._id}/>
                 </div>);
         }
 
