@@ -16,7 +16,7 @@ var Article = React.createClass({
                     <h2 className="item__title">
                         <Link to={`/post/${post._id}`}>{post.title}</Link>
                     </h2>
-                    <div className="item__text" dangerouslySetInnerHTML={{__html: post.content.slice(0, 250)}} />
+                    <div className="item__text" dangerouslySetInnerHTML={{__html: post.content.slice(0, 250) + ' ...'}} />
                 </div>
                 <div className="item__iterator">{iterator}</div>
 				<WidgetCount id={post._id} />
