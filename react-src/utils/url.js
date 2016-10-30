@@ -1,24 +1,16 @@
+var axios = require('axios');
+
 var util = {
     get: function (url) {
-        return fetch(url, {
-            credentials: 'same-origin'
-        }).then(function (res) {
-            return res.json();
-        });
+		return axios.get(url).then(function (res) {
+			return res.data;
+		});
     },
 
     post: function (url, body) {
-        return fetch(url, {
-            method: 'POST',
-            credentials: 'include',
-            body: JSON.stringify(body || {}),
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        }).then(function (res) {
-            return res.json();
-        });
+		return axios.post(url, body).then(function (res) {
+			return res.data;
+		});
     }
 };
 

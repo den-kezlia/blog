@@ -2,13 +2,14 @@ var actions = require('./actions');
 var dispatcher = require('./dispatcher');
 var constants = require('./constants');
 var utilUrl = require('./utils/url');
+var axios = require('axios');
 
 var API = {
     fetchPosts: function () {
-        get('/api/posts').then(actions.gotPosts.bind(actions));
+		utilUrl.get('/api/posts').then(actions.gotPosts.bind(actions));
     },
     getUser: function () {
-        get('/api/getUser').then(actions.loggined.bind(actions));
+		utilUrl.get('/api/getUser').then(actions.loggined.bind(actions));
     },
     login: function (data) {
         var login = data.login;
@@ -50,14 +51,6 @@ var API = {
         });
     }
 };
-
-function get(url) {
-    return fetch(url, {
-       credentials: 'same-origin'
-    }).then(function (res) {
-        return res.json();
-    });
-}
 
 dispatcher.register(function (action) {
     switch (action.actionType) {
