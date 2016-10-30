@@ -125,10 +125,13 @@ body.menu-active {
                 transition: $transition-out;
 
                 &:nth-child(1) {
-                    transform: rotate(45deg) translateX(7px) translateY(6px);
+                    transform: rotate(45deg) translateX(5px) translateY(5px);
+                    @include respond(large-up) {
+                        transform: rotate(45deg) translateX(6px) translateY(6px);
+                    }
                 }
                 &:nth-child(2) {
-                    transform: rotate(-45deg) translateX(1px) translateY(1px);
+                    transform: rotate(-45deg) translateX(0) translateY(0);
                 }
                 &:last-child {
                     display: none;

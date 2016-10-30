@@ -866,9 +866,12 @@ body.menu-active .sidebar-inner {
     body.menu-active .sidebar-inner .menu__line {
       transition: all 0.2s ease-out; }
       body.menu-active .sidebar-inner .menu__line:nth-child(1) {
-        transform: rotate(45deg) translateX(7px) translateY(6px); }
+        transform: rotate(45deg) translateX(5px) translateY(5px); }
+        @media only screen and (min-width: 768px) {
+          body.menu-active .sidebar-inner .menu__line:nth-child(1) {
+            transform: rotate(45deg) translateX(6px) translateY(6px); } }
       body.menu-active .sidebar-inner .menu__line:nth-child(2) {
-        transform: rotate(-45deg) translateX(1px) translateY(1px); }
+        transform: rotate(-45deg) translateX(0) translateY(0); }
       body.menu-active .sidebar-inner .menu__line:last-child {
         display: none; }
 body.menu-active .submenu {
