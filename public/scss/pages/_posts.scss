@@ -40,12 +40,14 @@
     position: relative;
     padding: 20px;
     border-bottom: 1px solid $nero-dark;
+      overflow: hidden;
     @include respond(large-up) {
       width: 33.333%;
       height: 100%;
         padding: 20px 0;
       float: left;
       border-right: 1px solid $nero-dark;
+        overflow: inherit;
     }
 
     &:last-child {
@@ -115,11 +117,14 @@
     }
 
     &-line {
-      width: 100%;
-      height: 5px;
-      position: fixed;
-      top: 0;
-      z-index: 1;
+        display: none;
+        @include respond(large-up) {
+            width: 100%;
+            height: 5px;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
     }
 
     &-inner {
@@ -162,7 +167,9 @@
 
     &__title {
       margin: 30px 0;
-      padding: 0 20px;
+        @include respond(large-up) {
+            padding: 0 20px;
+        }
       a {
 
         &:hover {
@@ -172,7 +179,9 @@
     }
 
       &__text {
-          padding: 0 20px;
+          @include respond(large-up) {
+              padding: 0 20px;
+          }
           p {
               text-indent: 0;
           }
@@ -183,12 +192,14 @@
       font-family: $font3;
       font-size: 24px;
       color: $nero-dark;
+        float: left;
 
       @include respond(large-up) {
         position: absolute;
         bottom: 20px;
         padding: 0 20px;
         margin: 0;
+          float: none;
       }
     }
 
@@ -197,6 +208,7 @@
           font-family: $font3;
           font-size: 18px;
           color: $nero-dark;
+          float: right;
 
           @include respond(large-up) {
               position: absolute;
@@ -204,6 +216,7 @@
               right: 0;
               padding: 0 20px;
               margin: 0;
+              float: none;
           }
 
           span {
@@ -216,11 +229,14 @@
 .post {
   padding: 20px;
   width: 100%;
-  max-width: 50%;
-  float: left;
-    margin: 40px;
     background: #1f1f1f;
     border-radius: 4px;
+    margin: 20px 0;
+    @include respond(large-up) {
+        max-width: 50%;
+        float: left;
+        margin: 40px;
+    }
 
     .item__admin-links {
         margin-top: 10px;

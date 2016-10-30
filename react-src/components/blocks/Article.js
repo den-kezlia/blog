@@ -19,7 +19,7 @@ var Article = React.createClass({
                     <div className="item__text" dangerouslySetInnerHTML={{__html: post.content.slice(0, 250)}} />
                 </div>
                 <div className="item__iterator">{iterator}</div>
-				<div className="item__widget-count"><WidgetCount id={post._id} /></div>
+				<WidgetCount id={post._id} />
             </article>
         );
     }

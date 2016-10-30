@@ -13,7 +13,7 @@ var WidgetCount = React.createClass({
 		var WidgetCountBlock = (<div></div>);
 
 		if (this.state.child.length) {
-			WidgetCountBlock = (<div>Подстатьи: <span>{this.state.child.length}</span></div>);
+			WidgetCountBlock = (<div className="item__widget-count">Подстатьи: <span>{this.state.child.length}</span></div>);
 		}
 
 		return (<div>{WidgetCountBlock}</div>);

@@ -1,7 +1,10 @@
 .widget {
-    float: left;
-    width: 30%;
-    margin-top: 60px;
+    margin-top: 50px;
+    @include respond(large-up) {
+        float: left;
+        width: 30%;
+        margin-top: 60px;
+    }
 
     ul {
         margin: 20px 0;
