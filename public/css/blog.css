@@ -1041,6 +1041,20 @@ body.menu-active .posts__lines {
           bottom: 20px;
           padding: 0 20px;
           margin: 0; } }
+    .posts .item__widget-count {
+      margin-top: 20px;
+      font-family: "Poiret One", cursive;
+      font-size: 18px;
+      color: #171717; }
+      @media only screen and (min-width: 768px) {
+        .posts .item__widget-count {
+          position: absolute;
+          bottom: 20px;
+          right: 0;
+          padding: 0 20px;
+          margin: 0; } }
+      .posts .item__widget-count span {
+        font-size: 24px; }
 
 .post {
   padding: 20px;

@@ -42,10 +42,6 @@ var Post = React.createClass({
 
                             <AdminLinks id={post._id} />
                         </article>
-
-                        <div className="back">
-                            <Link to='/'>Назад</Link>
-                        </div>
                     </section>
 
                     <Widget id={post._id}/>

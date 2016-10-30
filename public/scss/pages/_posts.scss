@@ -191,6 +191,25 @@
         margin: 0;
       }
     }
+
+      &__widget-count {
+          margin-top: 20px;
+          font-family: $font3;
+          font-size: 18px;
+          color: $nero-dark;
+
+          @include respond(large-up) {
+              position: absolute;
+              bottom: 20px;
+              right: 0;
+              padding: 0 20px;
+              margin: 0;
+          }
+
+          span {
+              font-size: 24px;
+          }
+      }
   }
 }
 
