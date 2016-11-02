@@ -73,6 +73,7 @@ var Widget = React.createClass({
 					</svg>
 					<div className="widget__item-iterator">{Util.iterator(iterator + 1)}</div>
 					<h3 className="widget__item-title"><Link to={`/post/${item._id}`}>{item.title}</Link></h3>
+					{/*TODO Add button to show full article*/}
 					<div className="widget__item-description" dangerouslySetInnerHTML={{__html: item.content.slice(0, 250) + ' ...'}} />
 				</li>);
 		});
