@@ -1,234 +1,234 @@
 .posts {
-  height: 100%;
+    height: 100%;
 
-  &__lines {
-    display: none;
-    @include respond(large-up) {
-      display: block;
-      position: fixed;
-      width: calc(100% - #{$sidebar-w});
-      left: $sidebar-w;
-      top: 0;
-      z-index: 1;
-      transition: $transition-in;
-    }
-  }
-
-  &__lines-item {
-    position: absolute;
-    top: 0;
-    width: 33.333%;
-    height: 5px;
-    z-index: 1;
-
-    &-left {
-      background: $golden-yellow;
-    }
-
-    &-middle {
-      background: $medium-spring-green;
-      left: 33.333%;
-    }
-
-    &-right {
-      background: $outrageous-orange;
-      left: 66.666%;
-    }
-  }
-
-  .item {
-    position: relative;
-    padding: 20px;
-    border-bottom: 1px solid $nero-dark;
-      overflow: hidden;
-    @include respond(large-up) {
-      width: 33.333%;
-      height: 100%;
-        padding: 20px 0;
-      float: left;
-      border-right: 1px solid $nero-dark;
-        overflow: inherit;
-    }
-
-    &:last-child {
-      margin-bottom: 100px;
-    }
-
-      &:nth-of-type(1) {
-          .item-line {
-              background: $golden-yellow;
-          }
-      }
-
-      &:nth-of-type(2) {
-          .item-line {
-              background: $medium-spring-green;
-          }
-      }
-
-      &:nth-of-type(3) {
-          .item-line {
-              background: $outrageous-orange;
-          }
-      }
-
-    &:nth-of-type(3n+1) {
-      .item__image {
-        &:after {
-          right: 0;
-        }
-      }
-
-      .item__title {
-        a {
-          color: $golden-yellow;
-        }
-      }
-    }
-    &:nth-of-type(3n-1) {
-      .item__image {
-        &:after {
-          right: 0;
-          bottom: 0;
-        }
-      }
-
-      .item__title {
-        a {
-          color: $medium-spring-green;
-        }
-      }
-    }
-    &:nth-of-type(3n) {
-      border-right: none;
-
-      .item__image {
-        &:after {
-          bottom: 0;
-          left: 0;
-        }
-      }
-
-      .item__title {
-        a {
-          color: $outrageous-orange;
-        }
-      }
-    }
-
-    &-line {
+    &__lines {
         display: none;
         @include respond(large-up) {
-            width: 100%;
-            height: 5px;
+            display: block;
             position: fixed;
+            width: calc(100% - #{$sidebar-w});
+            left: $sidebar-w;
             top: 0;
             z-index: 1;
+            transition: $transition-in;
         }
     }
 
-    &-inner {
-      position: relative;
-      @include respond(large-up) {
-        height: 380px;
-        top: 50%;
-        margin-top: -190px;
-      }
-    }
-
-    &__image {
-      position: relative;
-      display: block;
-      width: 50px;
-      height: 50px;
-      margin: 0 auto;
-      background-color: $nero-dark;
-      border-radius: 25px;
-      @include respond(large-up) {
-        width: 100px;
-        height: 100px;
-        border-radius: 50px;
-      }
-      &:after {
-        content: '';
-        display: block;
+    &__lines-item {
         position: absolute;
-        width: 33px;
-        height: 33px;
-        border-radius: 17px;
-        background: $nero;
+        top: 0;
+        width: 33.333%;
+        height: 5px;
+        z-index: 1;
+
+        &-left {
+            background: $golden-yellow;
+        }
+
+        &-middle {
+            background: $medium-spring-green;
+            left: 33.333%;
+        }
+
+        &-right {
+            background: $outrageous-orange;
+            left: 66.666%;
+        }
+    }
+
+    .item {
+        position: relative;
+        padding: 20px;
+        border-bottom: 1px solid $nero-dark;
+        overflow: hidden;
         @include respond(large-up) {
-          width: 65px;
-          height: 65px;
-          border-radius: 33px;
+            width: 33.333%;
+            height: 100%;
+            padding: 20px 0;
+            float: left;
+            border-right: 1px solid $nero-dark;
+            overflow: inherit;
         }
-      }
-    }
 
-    &__title {
-      margin: 30px 0;
-        @include respond(large-up) {
-            padding: 0 20px;
+        &:last-child {
+            margin-bottom: 100px;
         }
-      a {
 
-        &:hover {
-          text-decoration: underline;
+        &:nth-of-type(1) {
+            .item-line {
+                background: $golden-yellow;
+            }
         }
-      }
+
+        &:nth-of-type(2) {
+            .item-line {
+                background: $medium-spring-green;
+            }
+        }
+
+        &:nth-of-type(3) {
+            .item-line {
+                background: $outrageous-orange;
+            }
+        }
+
+        &:nth-of-type(3n+1) {
+            .item__image {
+                &:after {
+                    right: 0;
+                }
+            }
+
+            .item__title {
+                a {
+                    color: $golden-yellow;
+                }
+            }
+        }
+        &:nth-of-type(3n-1) {
+            .item__image {
+                &:after {
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+
+            .item__title {
+                a {
+                    color: $medium-spring-green;
+                }
+            }
+        }
+        &:nth-of-type(3n) {
+            border-right: none;
+
+            .item__image {
+                &:after {
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+
+            .item__title {
+                a {
+                    color: $outrageous-orange;
+                }
+            }
+        }
+
+        &-line {
+            display: none;
+            @include respond(large-up) {
+                width: 100%;
+                height: 5px;
+                position: fixed;
+                top: 0;
+                z-index: 1;
+            }
+        }
+
+        &-inner {
+            position: relative;
+            @include respond(large-up) {
+                height: 380px;
+                top: 50%;
+                margin-top: -190px;
+            }
+        }
+
+        &__image {
+            position: relative;
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: $nero-dark;
+            border-radius: 25px;
+            @include respond(large-up) {
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+            }
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 33px;
+                height: 33px;
+                border-radius: 17px;
+                background: $nero;
+                @include respond(large-up) {
+                    width: 65px;
+                    height: 65px;
+                    border-radius: 33px;
+                }
+            }
+        }
+
+        &__title {
+            margin: 30px 0;
+            @include respond(large-up) {
+                padding: 0 20px;
+            }
+            a {
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &__text {
+            @include respond(large-up) {
+                padding: 0 20px;
+            }
+            p {
+                text-indent: 0;
+            }
+        }
+
+        &__iterator {
+            margin-top: 20px;
+            font-family: $font3;
+            font-size: 24px;
+            color: $nero-dark;
+            float: left;
+
+            @include respond(large-up) {
+                position: absolute;
+                bottom: 20px;
+                padding: 0 20px;
+                margin: 0;
+                float: none;
+            }
+        }
+
+        &__widget-count {
+            margin-top: 20px;
+            font-family: $font3;
+            font-size: 18px;
+            color: $nero-dark;
+            float: right;
+
+            @include respond(large-up) {
+                position: absolute;
+                bottom: 20px;
+                right: 0;
+                padding: 0 20px;
+                margin: 0;
+                float: none;
+            }
+
+            span {
+                font-size: 24px;
+            }
+        }
     }
-
-      &__text {
-          @include respond(large-up) {
-              padding: 0 20px;
-          }
-          p {
-              text-indent: 0;
-          }
-      }
-
-    &__iterator {
-      margin-top: 20px;
-      font-family: $font3;
-      font-size: 24px;
-      color: $nero-dark;
-        float: left;
-
-      @include respond(large-up) {
-        position: absolute;
-        bottom: 20px;
-        padding: 0 20px;
-        margin: 0;
-          float: none;
-      }
-    }
-
-      &__widget-count {
-          margin-top: 20px;
-          font-family: $font3;
-          font-size: 18px;
-          color: $nero-dark;
-          float: right;
-
-          @include respond(large-up) {
-              position: absolute;
-              bottom: 20px;
-              right: 0;
-              padding: 0 20px;
-              margin: 0;
-              float: none;
-          }
-
-          span {
-              font-size: 24px;
-          }
-      }
-  }
 }
 
 .post {
-  padding: 20px;
-  width: 100%;
+    padding: 20px;
+    width: 100%;
     background: #1f1f1f;
     border-radius: 4px;
     margin: 20px 0;
@@ -247,19 +247,19 @@
 }
 
 .item-info {
-  position: relative;
-  margin-top: 40px;
-  font-family: 'PT Sans', sans-serif;
-  font-size: 12px;
-  line-height: 1.5;
-  color: $light-gray;
+    position: relative;
+    margin-top: 40px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: $light-gray;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 40px;
-    border-top: 2px solid #b7b7b7;
-  }
+    &:before {
+        content: '';
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 40px;
+        border-top: 2px solid #b7b7b7;
+    }
 }

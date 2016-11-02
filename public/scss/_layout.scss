@@ -1,46 +1,46 @@
 body {
-  padding-top: 60px;
-  @include respond(large-up) {
-    padding-top: 0;
-    overflow-x: hidden;
-  }
+    padding-top: 60px;
+    @include respond(large-up) {
+        padding-top: 0;
+        overflow-x: hidden;
+    }
 }
 
 .wrapper {
-  width: 100%;
+    width: 100%;
 
-  @include respond(large-up) {
-    width: calc(100% - #{$sidebar-w});
-    position: absolute;
-    top: 0;
-    left: $sidebar-w;
-    transition: $transition-in;
-  }
+    @include respond(large-up) {
+        width: calc(100% - #{$sidebar-w});
+        position: absolute;
+        top: 0;
+        left: $sidebar-w;
+        transition: $transition-in;
+    }
 }
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  z-index: 1;
-  @include respond(large-up) {
-    width: $sidebar-w;
-    left: 0;
-    height: 100%;
-  }
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+    @include respond(large-up) {
+        width: $sidebar-w;
+        left: 0;
+        height: 100%;
+    }
 }
 
 .footer {
-  display: none;
-  @include respond(large-up) {
-    display: block;
-    position: fixed;
-    width: calc(100% - #{$sidebar-w});
-    bottom: 0;
-    left: $sidebar-w;
-    height: 100px;
-    background: $nero-dark;
-    transition: $transition-in;
-  }
+    display: none;
+    @include respond(large-up) {
+        display: block;
+        position: fixed;
+        width: calc(100% - #{$sidebar-w});
+        bottom: 0;
+        left: $sidebar-w;
+        height: 100px;
+        background: $nero-dark;
+        transition: $transition-in;
+    }
 }

@@ -575,11 +575,12 @@ header {
   .sidebar .logo {
     text-align: center;
     display: block;
-    padding: 50px 0; }
+    padding: 50px 0;
+    outline: 0; }
     .sidebar .logo:hover .left-cycle {
-      left: calc(50% + ( 80px - 49.44376px ) / 2); }
+      left: calc(50% + (80px - 49.44376px) / 2); }
     .sidebar .logo:hover .right-cycle {
-      left: calc(50% - ( 49.44376px + 80px) / 2); }
+      left: calc(50% - (49.44376px + 80px) / 2); }
     .sidebar .logo .home {
       position: relative;
       width: 129.44376px;
@@ -649,9 +650,9 @@ header {
       border-radius: 24.72188px;
       transition: all 0.3s; }
     .sidebar .logo .left-cycle {
-      left: calc(50% - ( 49.44376px + 80px) / 2); }
+      left: calc(50% - (49.44376px + 80px) / 2); }
     .sidebar .logo .right-cycle {
-      left: calc(50% + ( 80px - 49.44376px ) / 2); }
+      left: calc(50% + (80px - 49.44376px) / 2); }
     .sidebar .logo .center-button {
       background: #008DDE;
       height: 40px;
@@ -748,9 +749,9 @@ header {
       border-radius: 12.36094px;
       transition: all 0.3s; }
     .sidebar .logo .left-cycle {
-      left: calc(50% - ( 24.72188px + 40px) / 2); }
+      left: calc(50% - (24.72188px + 40px) / 2); }
     .sidebar .logo .right-cycle {
-      left: calc(50% + ( 40px - 24.72188px ) / 2); }
+      left: calc(50% + (40px - 24.72188px) / 2); }
     .sidebar .logo .center-button {
       background: #008DDE;
       height: 20px;
