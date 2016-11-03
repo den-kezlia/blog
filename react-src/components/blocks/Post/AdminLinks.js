@@ -14,9 +14,9 @@ var AdminLinks = React.createClass({
 
         if (this.state.user) {
             AdminLinks = (<div className="item__admin-links">
-                <Link to={`/post/edit/${this.props.id}`}>Edit</Link>
+                <Link to={`/post/edit/${this.props.id}`}>Редактировать</Link>
                 {/*TODO implement article delete functionality*/}
-                <Link to={`/post/remove/${this.props.id}`}>Remove</Link>
+                <Link to={`/post/remove/${this.props.id}`}>Удалить</Link>
             </div>);
         }
 

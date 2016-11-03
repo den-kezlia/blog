@@ -857,6 +857,8 @@ header {
       .sidebar .submenu-list__item a {
         display: block;
         padding: 7px 10px; }
+        .sidebar .submenu-list__item a:hover {
+          border-left: 2px solid #008DDE; }
   .sidebar .submenu__title {
     color: #777;
     font-size: 12px; }

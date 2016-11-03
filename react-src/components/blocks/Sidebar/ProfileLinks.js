@@ -27,7 +27,7 @@ var ProfileLinks = React.createClass({
 
         return (
             <div>
-                <div className="submenu__title">User Panel</div>
+                <div className="submenu__title">Панель пользователя</div>
                 <ul className="submenu-list">
                     {ProfileLinks}
                 </ul>

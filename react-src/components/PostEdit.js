@@ -107,7 +107,7 @@ var PostEdit = React.createClass({
             });
 
             PostBlock = (<div className="page__create">
-                <h2>Edit Post <span>{post.title}</span></h2>
+                <h2>Редактирование - <span>{post.title}</span></h2>
 
                 <form className="form form-create" onSubmit={this.handleSubmit}>
                     <div className="form__row">

@@ -99,6 +99,9 @@
                 a {
                     display: block;
                     padding: 7px 10px;
+                    &:hover {
+                        border-left: 2px solid $pacific-blue;
+                    }
                 }
             }
         }
