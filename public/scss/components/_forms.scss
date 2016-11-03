@@ -28,7 +28,8 @@ textarea {
     background: none;
     border: none;
     color: $light-gray;
-    padding-right: 20px;
+    background: $bg;
+    padding: 0 20px;
     height: 80px;
     width: 100%;
     outline: none;
@@ -54,12 +55,23 @@ textarea {
 }
 
 .form {
-    max-width: 600px;
-
     &__row {
-        width: 50%;
-        float: left;
-        border-bottom: 2px solid $pacific-blue;
+        &-select {
+            padding: 15px 0;
+            select {
+                width: 100%;
+            }
+        }
+    }
+
+    &__row-inline {
+        & > .form__row {
+            float: left;
+            width: 50%;
+            &:first-child {
+                border-right: 2px solid #1f1f1f;
+            }
+        }
     }
 
     &__row-button {

@@ -446,7 +446,8 @@ textarea {
   background: none;
   border: none;
   color: #777;
-  padding-right: 20px;
+  background: #272727;
+  padding: 0 20px;
   height: 80px;
   width: 100%;
   outline: none;
@@ -497,14 +498,17 @@ textarea {
     /* Firefox 18- */
     color: #777; }
 
-.form {
-  max-width: 600px; }
-  .form__row {
-    width: 50%;
-    float: left;
-    border-bottom: 2px solid #008DDE; }
-  .form__row-button {
+.form__row-select {
+  padding: 15px 0; }
+  .form__row-select select {
     width: 100%; }
+.form__row-inline > .form__row {
+  float: left;
+  width: 50%; }
+  .form__row-inline > .form__row:first-child {
+    border-right: 2px solid #1f1f1f; }
+.form__row-button {
+  width: 100%; }
 
 header {
   display: none;
@@ -924,7 +928,7 @@ body.menu-active .posts__lines {
     .widget__item-title {
       text-align: center;
       margin-top: 0;
-      font-size: 14px; }
+      font-size: 16px; }
     .widget__item-description {
       font-size: 12px; }
 
@@ -1076,22 +1080,6 @@ body.menu-active .posts__lines {
       .posts .item__widget-count span {
         font-size: 24px; }
 
-.post {
-  padding: 20px;
-  width: 100%;
-  background: #1f1f1f;
-  border-radius: 4px;
-  margin: 20px 0; }
-  @media only screen and (min-width: 768px) {
-    .post {
-      max-width: 50%;
-      float: left;
-      margin: 40px; } }
-  .post .item__admin-links {
-    margin-top: 10px; }
-    .post .item__admin-links a {
-      margin-right: 10px; }
-
 .item-info {
   position: relative;
   margin-top: 40px;
@@ -1110,6 +1098,55 @@ body.menu-active .posts__lines {
 @media only screen and (min-width: 768px) {
   .page__post {
     padding-bottom: 100px; } }
+
+.page__create {
+  padding: 20px;
+  width: 100%;
+  background: #1f1f1f;
+  border-radius: 4px;
+  margin: 20px 0; }
+  @media only screen and (min-width: 768px) {
+    .page__create {
+      padding-top: 5px;
+      max-width: 50%;
+      float: left;
+      margin: 40px; } }
+
+.post {
+  padding: 20px;
+  width: 100%;
+  background: #1f1f1f;
+  border-radius: 4px;
+  margin: 20px 0; }
+  @media only screen and (min-width: 768px) {
+    .post {
+      max-width: 50%;
+      float: left;
+      margin: 40px; } }
+  .post .item__admin-links {
+    margin-top: 10px; }
+    .post .item__admin-links a {
+      margin-right: 10px; }
+
+.page__login {
+  padding: 20px;
+  width: 100%;
+  background: #1f1f1f;
+  border-radius: 4px;
+  margin: 20px 0; }
+  @media only screen and (min-width: 768px) {
+    .page__login {
+      padding-top: 5px;
+      max-width: 50%;
+      float: left;
+      margin: 40px; } }
+  .page__login .form__row {
+    width: 50%;
+    float: left; }
+    .page__login .form__row:first-child {
+      border-right: 2px solid #1f1f1f; }
+  .page__login .form__row-button .button {
+    border-radius: 0 0 2px 2px; }
 
 .content-inner {
   padding: 0 20px; }

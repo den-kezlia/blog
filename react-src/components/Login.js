@@ -39,8 +39,8 @@ var Login = React.createClass({
                 User: {this.state.user.name}
             </div>);
         } else {
-            LoginForm = (<div>
-                <h2>Login page</h2>
+            LoginForm = (<div className="page__login">
+                <h2>Войти</h2>
 
                 <div className="form form-account">
                     <form onSubmit={this.handleSubmit}>
@@ -68,7 +68,7 @@ var Login = React.createClass({
                         </div>
                         <div className="form__error">{this.state.error}</div>
                         <div className="form__row-button">
-                            <button type="submit" className="form__button button">Submit</button>
+                            <button type="submit" className="form__button button">Войти</button>
                         </div>
                     </form>
                 </div>

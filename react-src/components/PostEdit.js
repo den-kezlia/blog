@@ -106,36 +106,33 @@ var PostEdit = React.createClass({
                 }
             });
 
-            PostBlock = (<div>
+            PostBlock = (<div className="page__create">
                 <h2>Edit Post <span>{post.title}</span></h2>
 
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-row">
-                        <label htmlFor="title">Title</label>
-                        <input ref="title" type="text" id="title" name="title" value={this.state.title} onChange={this.handleChange}/>
+                <form className="form form-create" onSubmit={this.handleSubmit}>
+                    <div className="form__row">
+                        <input ref="title" type="text" id="title" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Заголовок"/>
                     </div>
-                    <div className="form-row">
-                        <label htmlFor="content">Content</label>
+                    <div className="form__row">
                         <textarea ref="content" className="ckeditor" id="content" name="content" value={this.state.content} onChange={this.handleChange}/>
                     </div>
-                    <div className="form-row">
-                        <label htmlFor="parent">Родительская Статья</label>
+                    <div className="form__row form__row-select">
                         <select ref="parentNode" name="parent" id="parent" selected={this.state.parent} onChange={this.handleChange}>
-                            <option>Выбрать</option>
+                            <option>Родительская Статья - Выбрать</option>
                             {PostSelection}
                         </select>
                     </div>
-                    <div className="form-row">
-                        <label htmlFor="date">Date</label>
-                        <input ref="date" type="text" className="js-date-picker" name="date" id="date" value={this.state.date} onChange={this.handleChange} />
+                    <div className="form__row-inline">
+                        <div className="form__row">
+                            <input ref="date" type="text" className="js-date-picker" name="date" id="date" value={this.state.date} onChange={this.handleChange} placeholder="Дата создания" />
+                        </div>
+                        <div className="form__row">
+                            <input ref="link" type="text" name="link" id="link" value={this.state.link} onChange={this.handleChange} placeholder="Link Alias"/>
+                        </div>
                     </div>
-                    <div className="form-row">
-                        <label htmlFor="link">Link</label>
-                        <input ref="link" type="text" name="link" id="link" value={this.state.link} onChange={this.handleChange}/>
-                    </div>
-                    <div className="error">{this.state.error}</div>
-                    <div className="form-row">
-                        <button>Submit</button>
+                    <div className="form__error">{this.state.error}</div>
+                    <div className="form__row-button">
+                        <button>Сохранить</button>
                     </div>
                 </form>
             </div>);

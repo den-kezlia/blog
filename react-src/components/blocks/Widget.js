@@ -62,19 +62,25 @@ var Widget = React.createClass({
     	var WidgetBlock = (<div></div>);
 
     	var Widget = this.state.child.map(function (item, iterator) {
+    	    var showMoreBlock = (<div></div>);
+            if (item.content.length > 255) {
+                showMoreBlock = (<div> + </div>);
+            }
+
 			return (
 				<li key={item._id} className="widget__item js-widget">
 					<svg className="widget__item-line" ref={`item_${iterator}`} width="40">
 						<g id="Layer1" name="Layer 1" opacity="1">
 							<g id="Shape1">
-								<path id="curve" d="" style={{stroke: '#008DDE', opacity: 0.5, strokeWidth: 1, fill: 'none'}}/>
+								<path id="curve" d="" style={{stroke: '#008DDE', opacity: 0.5, strokeWidth: 2, fill: 'none'}}/>
 							</g>
 						</g>
 					</svg>
 					<div className="widget__item-iterator">{Util.iterator(iterator + 1)}</div>
 					<h3 className="widget__item-title"><Link to={`/post/${item._id}`}>{item.title}</Link></h3>
 					{/*TODO Add button to show full article*/}
-					<div className="widget__item-description" dangerouslySetInnerHTML={{__html: item.content.slice(0, 250) + ' ...'}} />
+					<div className="widget__item-description" dangerouslySetInnerHTML={{__html: item.content}} />
+                    {showMoreBlock}
 				</li>);
 		});
 

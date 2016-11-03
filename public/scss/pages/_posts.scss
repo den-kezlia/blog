@@ -226,26 +226,6 @@
     }
 }
 
-.post {
-    padding: 20px;
-    width: 100%;
-    background: #1f1f1f;
-    border-radius: 4px;
-    margin: 20px 0;
-    @include respond(large-up) {
-        max-width: 50%;
-        float: left;
-        margin: 40px;
-    }
-
-    .item__admin-links {
-        margin-top: 10px;
-        a {
-            margin-right: 10px;
-        }
-    }
-}
-
 .item-info {
     position: relative;
     margin-top: 40px;
