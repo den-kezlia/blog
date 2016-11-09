@@ -8,10 +8,12 @@ var GlobalLinks = React.createClass({
                 <ul className="submenu-list">
                     <li className="submenu-list__item">
                         {/* TODO use CONSTANTS for arche link */}
-                        <a href="http://arche.sounex.com" className="submenu-list__item__link js-bgstyle js-bgstyle__small">Arche</a>
+                        <a href="http://arche.sounex.com"
+                           className="submenu-list__item__link js-bgstyle js-bgstyle__small">Arche</a>
                     </li>
                     <li className="submenu-list__item">
-                        <Link to={`/`} className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Blog</Link>
+                        <Link to={`/`}
+                              className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Blog</Link>
                     </li>
                 </ul>
             </div>

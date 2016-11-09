@@ -11,17 +11,17 @@ var Home = React.createClass({
     mixins: [PostStore.mixin()],
     render: function () {
         var items = this.state.posts.map(function (post, iterator) {
-            return <Article post={post} key={post._id} iterator={iterator} />;
+            return <Article post={post} key={post._id} iterator={iterator}/>;
         });
 
         return (
-        	<div>
-				<div id="wrapper" className="wrapper">
-					<section className="posts">
-						{items}
-					</section>
-				</div>
-			</div>
+            <div>
+                <div id="wrapper" className="wrapper">
+                    <section className="posts">
+                        {items}
+                    </section>
+                </div>
+            </div>
         );
     }
 });

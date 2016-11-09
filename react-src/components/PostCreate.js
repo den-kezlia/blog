@@ -3,7 +3,7 @@ var PostStore = require('../stores/posts');
 var actions = require('../actions');
 
 var PostCreate = React.createClass({
-    getInitialState: function() {
+    getInitialState: function () {
         /*TODO Implement Auth required functionality*/
 
         actions
@@ -27,7 +27,7 @@ var PostCreate = React.createClass({
         this.initForm();
     },
     componentDidUpdate: function () {
-       this.initForm();
+        this.initForm();
     },
     componentWillUnmount: function () {
         this.unmountForm();
@@ -106,23 +106,28 @@ var PostCreate = React.createClass({
             <div className="form form-create">
                 <form onSubmit={this.handleSubmit}>
                     <div className="form__row">
-                        <input ref="title" type="text" id="title" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Заголовок"/>
+                        <input ref="title" type="text" id="title" name="title" value={this.state.title}
+                               onChange={this.handleChange} placeholder="Заголовок"/>
                     </div>
                     <div className="form__row">
-                        <textarea ref="content" className="ckeditor" id="content" name="content" value={this.state.content} onChange={this.handleChange}/>
+                        <textarea ref="content" className="ckeditor" id="content" name="content"
+                                  value={this.state.content} onChange={this.handleChange}/>
                     </div>
                     <div className="form__row form__row-select">
-                        <select ref="parentNode" name="parent" id="parent" selected={this.state.parent} onChange={this.handleChange}>
+                        <select ref="parentNode" name="parent" id="parent" selected={this.state.parent}
+                                onChange={this.handleChange}>
                             <option>Родительская Статья - Выбрать</option>
                             {PostSelection}
                         </select>
                     </div>
                     <div className="form__row-inline">
                         <div className="form__row">
-                            <input ref="date" type="text" className="js-date-picker" name="date" id="date" value={this.state.date} onChange={this.handleChange} placeholder="Дата создания" />
+                            <input ref="date" type="text" className="js-date-picker" name="date" id="date"
+                                   value={this.state.date} onChange={this.handleChange} placeholder="Дата создания"/>
                         </div>
                         <div className="form__row">
-                            <input ref="link" type="text" name="link" id="link" value={this.state.link} onChange={this.handleChange} placeholder="Link Alias"/>
+                            <input ref="link" type="text" name="link" id="link" value={this.state.link}
+                                   onChange={this.handleChange} placeholder="Link Alias"/>
                         </div>
                     </div>
                     <div className="form__error">{this.state.error}</div>

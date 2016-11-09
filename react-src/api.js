@@ -6,10 +6,10 @@ var axios = require('axios');
 
 var API = {
     fetchPosts: function () {
-		utilUrl.get('/api/posts').then(actions.gotPosts.bind(actions));
+        utilUrl.get('/api/posts').then(actions.gotPosts.bind(actions));
     },
     getUser: function () {
-		utilUrl.get('/api/getUser').then(actions.loggined.bind(actions));
+        utilUrl.get('/api/getUser').then(actions.loggined.bind(actions));
     },
     login: function (data) {
         var login = data.login;

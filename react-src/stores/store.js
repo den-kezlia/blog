@@ -3,7 +3,8 @@ var EventEmitterProto = require('events').EventEmitter.prototype;
 var CHANGE_EVENT = 'CHANGE';
 
 var storeMethods = {
-    init: function () {},
+    init: function () {
+    },
     set: function (arr) {
         var currIds = this._data.map(function (m) {
             return m._id;

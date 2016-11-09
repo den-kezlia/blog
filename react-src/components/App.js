@@ -10,9 +10,9 @@ var App = React.createClass({
     render: function () {
         return (
             <div className="">
-                <Sidebar user={this.state.user} />
+                <Sidebar user={this.state.user}/>
 
-				{this.props.children}
+                {this.props.children}
             </div>
         );
     }

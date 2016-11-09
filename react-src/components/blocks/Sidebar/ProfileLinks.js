@@ -15,13 +15,17 @@ var ProfileLinks = React.createClass({
         if (this.state.user) {
             //TODO Add 'logout' router
             ProfileLinks = (<li className="submenu-list__item">
-                <Link to={`/profile`} className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Профиль</Link>
-                <Link to={`/post/create`} className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Добавить запись</Link>
-                <a href="/logout" className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Выйти</a>
+                <Link to={`/profile`}
+                      className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Профиль</Link>
+                <Link to={`/post/create`}
+                      className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Добавитьзапись</Link>
+                <a href="/logout"
+                   className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Выйти</a>
             </li>);
         } else {
             ProfileLinks = (<li className="submenu-list__item">
-                <Link to={`/login`} className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Вход</Link>
+                <Link to={`/login`}
+                      className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Вход</Link>
             </li>);
         }
 
