@@ -3,7 +3,7 @@ var Utils = require('../utils/util');
 
 module.exports = function (app, passport) {
     app.get('/api/posts', function (req, res) {
-        Posts.find().sort({date: -1}).populate('author').exec(function(err, items) {
+        Posts.find().sort({date: -1}).populate({path: 'author', select: '_id, name'}).exec(function(err, items) {
             res.json(items);
         });
     });
