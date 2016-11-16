@@ -13,7 +13,7 @@ var GlobalLinks = React.createClass({
                     </li>
                     <li className="submenu-list__item">
                         <Link to={`/`}
-                              className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Blog</Link>
+                              className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Блог</Link>
                     </li>
                 </ul>
             </div>

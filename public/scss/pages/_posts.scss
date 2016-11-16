@@ -42,16 +42,15 @@
         border-bottom: 1px solid $nero-dark;
         overflow: hidden;
         @include respond(large-up) {
-            width: 33.333%;
+            width: 50%;
             height: 100%;
             padding: 20px 0;
             float: left;
             border-right: 1px solid $nero-dark;
-            overflow: inherit;
+            overflow: hidden;
         }
-
-        &:last-child {
-            margin-bottom: 100px;
+        @include respond(desktop) {
+            width: 33.333%;
         }
 
         &:nth-of-type(1) {
@@ -100,7 +99,9 @@
             }
         }
         &:nth-of-type(3n) {
-            border-right: none;
+            @include respond(desktop) {
+                border-right: none;
+            }
 
             .item__image {
                 &:after {
@@ -119,6 +120,7 @@
         &-line {
             display: none;
             @include respond(large-up) {
+                display: block;
                 width: 100%;
                 height: 5px;
                 position: fixed;
@@ -196,19 +198,52 @@
 
             @include respond(large-up) {
                 position: absolute;
-                bottom: 20px;
+                top: 20px;
+                right: 0;
                 padding: 0 20px;
                 margin: 0;
                 float: none;
             }
         }
 
+        &__widget-child {
+            position: absolute;
+            right: 0;
+            bottom: -20px;
+            padding: 20px;
+            min-width: 250px;
+            background: #1f1f1f;
+            border-radius: 4px;
+            font-family: $font3;
+            font-size: 12px;
+            transform: translateX(250px);
+            transition: $transition-in;
+
+            li {
+                margin-bottom: 10px;
+                &:last-child {
+                    margin: 0;
+                }
+            }
+
+            span {
+                color: $light-gray;
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+
         &__widget-count {
             margin-top: 20px;
-            font-family: $font3;
-            font-size: 18px;
-            color: $nero-dark;
             float: right;
+            cursor: pointer;
+
+            &:hover {
+                .item__widget-child {
+                    transform: translateX(0);
+                    transition: $transition-out;
+                }
+            }
 
             @include respond(large-up) {
                 position: absolute;
@@ -219,8 +254,14 @@
                 float: none;
             }
 
-            span {
-                font-size: 24px;
+            &__label {
+                font-family: $font3;
+                font-size: 18px;
+                color: $light-gray;
+
+                span {
+                    font-size: 24px;
+                }
             }
         }
     }
