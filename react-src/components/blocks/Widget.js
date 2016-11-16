@@ -88,7 +88,7 @@ var Widget = React.createClass({
         if (Widget.length) {
             WidgetBlock = (
                 <div className="widget">
-                    <h2 className="widget-title">Подстатьи:</h2>
+                    <h2 className="widget-title">Продолжение:</h2>
                     <ul>
                         {Widget}
                     </ul>

@@ -1069,23 +1069,22 @@ body.menu-active .posts__lines {
     .posts .item__text p {
       text-indent: 0; }
     .posts .item__iterator {
-      margin-top: 20px;
+      position: absolute;
       font-family: "Poiret One", cursive;
-      font-size: 24px;
+      font-size: 20px;
       color: #171717;
-      float: left; }
+      top: 20px;
+      right: 0;
+      padding: 0 20px;
+      margin: 0;
+      float: none; }
       @media only screen and (min-width: 768px) {
         .posts .item__iterator {
-          position: absolute;
-          top: 20px;
-          right: 0;
-          padding: 0 20px;
-          margin: 0;
-          float: none; } }
+          font-size: 24px; } }
     .posts .item__widget-child {
       position: absolute;
       right: 0;
-      bottom: -20px;
+      bottom: 0;
       padding: 20px;
       min-width: 250px;
       background: #1f1f1f;
@@ -1094,6 +1093,9 @@ body.menu-active .posts__lines {
       font-size: 12px;
       transform: translateX(250px);
       transition: all 0.2s ease-in; }
+      @media only screen and (min-width: 768px) {
+        .posts .item__widget-child {
+          bottom: -20px; } }
       .posts .item__widget-child li {
         margin-bottom: 10px; }
         .posts .item__widget-child li:last-child {

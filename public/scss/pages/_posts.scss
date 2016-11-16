@@ -190,26 +190,25 @@
         }
 
         &__iterator {
-            margin-top: 20px;
+            position: absolute;
             font-family: $font3;
-            font-size: 24px;
+            font-size: 20px;
             color: $nero-dark;
-            float: left;
+            top: 20px;
+            right: 0;
+            padding: 0 20px;
+            margin: 0;
+            float: none;
 
             @include respond(large-up) {
-                position: absolute;
-                top: 20px;
-                right: 0;
-                padding: 0 20px;
-                margin: 0;
-                float: none;
+                font-size: 24px;
             }
         }
 
         &__widget-child {
             position: absolute;
             right: 0;
-            bottom: -20px;
+            bottom: 0;
             padding: 20px;
             min-width: 250px;
             background: #1f1f1f;
@@ -218,6 +217,9 @@
             font-size: 12px;
             transform: translateX(250px);
             transition: $transition-in;
+            @include respond(large-up) {
+                bottom: -20px;
+            }
 
             li {
                 margin-bottom: 10px;
