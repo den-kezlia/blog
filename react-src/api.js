@@ -38,7 +38,7 @@ var API = {
             }
         });
     },
-    CreatePost: function (data) {
+    createPost: function (data) {
         utilUrl.post('/api/post/create/', data).then(function (data) {
             if (typeof data.error !== 'undefined') {
                 // TODO add error Action
@@ -61,7 +61,7 @@ dispatcher.register(function (action) {
             API.editPost(action.data);
             break;
         case constants.CREATE_POST:
-            API.CreatePost(action.data);
+            API.createPost(action.data);
             break;
     }
 });

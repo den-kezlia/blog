@@ -19,7 +19,6 @@ var storeMethods = {
         this.sort();
     },
     update: function (data) {
-        /*TODO implement update function*/
         var _this = this;
         this._data.forEach(function (item, i) {
             if (item._id === data._id) {

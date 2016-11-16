@@ -65,6 +65,7 @@ textarea {
     }
 
     &__row-inline {
+        overflow: hidden;
         & > .form__row {
             float: left;
             width: 50%;
@@ -76,5 +77,10 @@ textarea {
 
     &__row-button {
         width: 100%;
+    }
+
+    &__error {
+        color: red;
+        margin: 10px 0;
     }
 }

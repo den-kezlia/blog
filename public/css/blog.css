@@ -502,13 +502,18 @@ textarea {
   padding: 15px 0; }
   .form__row-select select {
     width: 100%; }
-.form__row-inline > .form__row {
-  float: left;
-  width: 50%; }
-  .form__row-inline > .form__row:first-child {
-    border-right: 2px solid #1f1f1f; }
+.form__row-inline {
+  overflow: hidden; }
+  .form__row-inline > .form__row {
+    float: left;
+    width: 50%; }
+    .form__row-inline > .form__row:first-child {
+      border-right: 2px solid #1f1f1f; }
 .form__row-button {
   width: 100%; }
+.form__error {
+  color: red;
+  margin: 10px 0; }
 
 header {
   display: none;
