@@ -1,6 +1,7 @@
 .page__post {
     @include respond(large-up) {
         padding-bottom: 100px;
+        height: auto;
     }
 }
 

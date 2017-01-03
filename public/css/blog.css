@@ -1143,7 +1143,8 @@ body.menu-active .posts__lines {
 
 @media only screen and (min-width: 768px) {
   .page__post {
-    padding-bottom: 100px; } }
+    padding-bottom: 100px;
+    height: auto; } }
 
 .page__create {
   padding: 20px;
