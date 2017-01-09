@@ -1,6 +1,8 @@
 var React = require('react');
+var Dropzone = require('react-dropzone');
 var PostStore = require('../stores/posts');
 var actions = require('../actions');
+var Util = require('../utils/util');
 
 var PostEdit = React.createClass({
     getInitialState: function () {
@@ -17,6 +19,8 @@ var PostEdit = React.createClass({
         return {
             id: post._id || false,
             title: post.title || false,
+            imageChanged: false,
+            image: post.image || false,
             content: post.content || false,
             parent: post.parentNode || false,
             date: dateString || false,
@@ -67,16 +71,29 @@ var PostEdit = React.createClass({
             [event.target.id]: event.target.value
         });
     },
+    onDrop: function (image) {
+        this.setState({
+            imageChanged: true,
+            image: image
+        });
+    },
+    deleteImage: function () {
+        this.setState({
+            image: ''
+        })
+    },
     handleSubmit: function (event) {
         /*TODO Implement Edit functionality*/
         event.preventDefault();
 
-        var id = this.state.id;
-        var title = this.state.title;
-        var content = this.state.content;
-        var parentNode = this.state.parent;
-        var date = this.state.date;
-        var link = this.state.link;
+        var id = this.state.id,
+            title = this.state.title,
+            image = this.state.image[0],
+            content = this.state.content,
+            parentNode = this.state.parent,
+            date = this.state.date,
+            link = this.state.link;
+        var formData = new FormData();
 
         if (!title) {
             this.setState({error: 'Заголовок не может быть пустым.'});
@@ -92,18 +109,24 @@ var PostEdit = React.createClass({
 
         /*TODO add functionality if message was updated */
 
-        actions.editPost({
-            _id: id,
-            title: title,
-            content: content,
-            parentNode: parentNode,
-            date: date,
-            link: link
-        });
+        formData.append('_id', id);
+        formData.append('title', title);
+        formData.append('content', content);
+        formData.append('date', date);
+        formData.append('link', link);
+
+        if (parentNode) {
+            formData.append('parentNode', parentNode);
+        }
+        if (image) {
+            formData.append('image', image, image.name);
+        }
+
+        actions.editPost(formData);
     },
     render: function () {
-        var PostBlock = '';
-        var post = this.state.post;
+        var PostBlock = '',
+            post = this.state.post;
 
         if (post) {
             var PostSelection = this.state.postsCollection.map(function (item) {
@@ -126,6 +149,23 @@ var PostEdit = React.createClass({
                                value={this.state.title}
                                onChange={this.handleChange}
                                placeholder="Заголовок"/>
+                    </div>
+                    <div className="form__row form__row-dropzone">
+                        <Dropzone onDrop={this.onDrop} className="dropzone">
+                            Загрузить картинку
+                        </Dropzone>
+                        {(this.state.image.length > 0) && (!this.state.imageChanged)
+                            ? <div className="dropzone-image">
+                                <img src={Util.getImageUrl(this.state.image)} />
+                                <span className="form__delete-image" onClick={this.deleteImage}>Delete</span>
+                              </div>
+                            : null}
+                        {(this.state.image.length > 0) && (this.state.imageChanged)
+                            ? <div className="dropzone-image">
+                                {this.state.image.map((image) => <img key={image.preview} src={image.preview} /> )}
+                                <span className="form__delete-image" onClick={this.deleteImage}>Delete</span>
+                              </div>
+                            : null}
                     </div>
                     <div className="form__row">
                         <textarea ref="content"

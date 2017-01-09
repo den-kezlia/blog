@@ -5,6 +5,7 @@ var PostStore = require('../stores/posts');
 var Widget = require('./blocks/Widget');
 var AdminLinks = require('./blocks/Post/AdminLinks');
 var Footer = require('./blocks/Footer');
+var Util = require('../utils/util');
 
 var Post = React.createClass({
     getInitialState: function () {
@@ -27,12 +28,20 @@ var Post = React.createClass({
     render: function () {
         var PostBlock = '';
         var post = this.state.post;
+        var ImageBlock = '';
+
+        if (post.image) {
+            ImageBlock = (<div className="item__image">
+                <img src={Util.getImageUrl(post.image)} alt=""/>
+            </div>)
+        }
 
         if (post) {
             PostBlock = (<div>
                 <section className="post">
                     <article className="item">
                         <h2 className="item__title">{post.title}</h2>
+                        {ImageBlock}
                         <div className="item__text" dangerouslySetInnerHTML={{__html: post.content}}/>
 
                         <div className="item-info">

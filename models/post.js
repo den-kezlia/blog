@@ -21,7 +21,8 @@ var postSchema = mongoose.Schema({
     parentNode: {
         type: mongoose.Schema.ObjectId,
         ref: 'Post'
-    }
+    },
+    image: String
 });
 
 module.exports = mongoose.model('Post', postSchema);

@@ -28,7 +28,7 @@ var storeMethods = {
     },
     sort: function () {
         this._data.sort(function (a, b) {
-            return +new Date(b.$created) - new Date(a.$created);
+            return +new Date(b.date) - new Date(a.date);
         });
     },
     all: function () {

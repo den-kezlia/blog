@@ -1,5 +1,17 @@
+var multer = require('multer');
 var Posts = require('./../models/post');
 var Utils = require('../utils/util');
+var Constants = require('../config/constants');
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, Constants.uploadedImagesUrl)
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname)
+    }
+});
+var upload = multer({storage: storage}).single('image');
 
 module.exports = function (app, passport) {
     app.get('/api/posts', function (req, res) {
@@ -67,23 +79,33 @@ module.exports = function (app, passport) {
     });
 
     app.post('/api/post/create', isLoggedIn, function (req, res, next) {
-        var post = new Posts();
 
-        post.title = req.body.title;
-        post.content = req.body.content;
-        post.author = req.user._id;
-        post.date = new Date(req.body.date);
+        upload(req, res, function(err) {
+            if (err) {
+                // TODO implement errors functionality
+                console.log('image error: ', err);
+            }
 
-        if (req.body.parentNode) {
-            post.parentNode = req.body.parentNode;
-        }
+            var post = new Posts();
 
-        post.save(function(err) {
-            if (err)
-                next();
+            post.title = req.body.title;
+            post.content = req.body.content;
+            post.author = req.user._id;
+            post.date = new Date(req.body.date);
+            if (req.file) {
+                post.image = req.file.filename;
+            }
+            if (req.body.parentNode) {
+                post.parentNode = req.body.parentNode;
+            }
 
-            res.json({post: post});
-        })
+            post.save(function(err) {
+                if (err)
+                    next();
+
+                res.json({post: post});
+            });
+         });
     });
 };
 

@@ -7,17 +7,26 @@ var Article = React.createClass({
     render: function () {
         var post = this.props.post;
         var iterator = Util.iterator(this.props.iterator + 1);
+        var imageClass = '';
+        var ImageBlock = '';
+
+        if (post.image) {
+            ImageBlock = (<img src={Util.getImageUrl(post.image)} />);
+            imageClass = 'no-image';
+        }
 
         return (
             <article className="item js-bgstyle">
                 <div className="item-line"></div>
                 <div className="item-inner">
-                    <Link className="item__image" to={`/post/${post._id}`}/>
                     <h2 className="item__title">
                         <Link to={`/post/${post._id}`}>{post.title}</Link>
                     </h2>
+                    <Link className={`item__image ${imageClass}`} to={`/post/${post._id}`}>
+                        {ImageBlock}
+                    </Link>
                     <div className="item__text"
-                         dangerouslySetInnerHTML={{__html: post.content.slice(0, 250) + ' ...'}}/>
+                         dangerouslySetInnerHTML={{__html: post.content.slice(0, 500) + ' ...'}}/>
                 </div>
                 <div className="item__iterator">{iterator}</div>
                 <WidgetCount id={post._id}/>

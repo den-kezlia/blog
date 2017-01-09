@@ -18,7 +18,7 @@ var ProfileLinks = React.createClass({
                 <Link to={`/profile`}
                       className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Профиль</Link>
                 <Link to={`/post/create`}
-                      className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Добавитьзапись</Link>
+                      className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Добавить запись</Link>
                 <a href="/logout"
                    className="submenu-list__item__link js-bgstyle js-bgstyle__small js-link">Выйти</a>
             </li>);

@@ -83,4 +83,64 @@ textarea {
         color: red;
         margin: 10px 0;
     }
+
+    &__row-dropzone {
+        margin: 10px 0;
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+    &__delete-image {
+        text-indent: -999px;
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        right: -12px;
+        top: -12px;
+        border: 2px solid red;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        transition: $transition-in;
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 14px;
+            height: 2px;
+            background: red;
+        }
+        &::before {
+            transform: rotate(45deg);
+            left: 3px;
+            top: 9px;
+        }
+        &::after {
+            transform: rotate(-45deg);
+            top: 9px;
+            left: 3px;
+        }
+
+        &:hover {
+            transform: rotate(90deg);
+            transition: $transition-out;
+        }
+    }
+}
+
+.dropzone {
+    width: 100%;
+    border: 2px dashed $pacific-blue;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.dropzone-image {
+    position: relative;
+    margin: 15px 0;
 }

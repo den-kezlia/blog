@@ -1,4 +1,5 @@
 var React = require('react');
+var Dropzone = require('react-dropzone');
 var PostStore = require('../stores/posts');
 var actions = require('../actions');
 
@@ -11,6 +12,7 @@ var PostCreate = React.createClass({
         return {
             id: '',
             title: '',
+            image: '',
             content: '',
             parent: false,
             date: dateString,
@@ -59,16 +61,27 @@ var PostCreate = React.createClass({
             [event.target.id]: event.target.value
         });
     },
+    onDrop: function (image) {
+        this.setState({
+            image: image
+        });
+    },
+    deleteImage: function () {
+        this.setState({
+            image: ''
+        })
+    },
     handleSubmit: function (event) {
         /*TODO Implement Edit functionality*/
         event.preventDefault();
 
-        var id = this.state.id;
-        var title = this.state.title;
-        var content = this.state.content;
-        var parentNode = this.state.parent;
-        var date = this.state.date;
-        var link = this.state.link;
+        var title = this.state.title,
+            image = this.state.image[0],
+            content = this.state.content,
+            parentNode = this.state.parent,
+            date = this.state.date,
+            link = this.state.link;
+        var formData = new FormData();
 
         if (!title) {
             this.setState({error: 'Заголовок не может быть пустым.'});
@@ -84,18 +97,22 @@ var PostCreate = React.createClass({
 
         /*TODO add functionality if message was updated */
 
-        actions.createPost({
-            _id: id,
-            title: title,
-            content: content,
-            parentNode: parentNode,
-            date: date,
-            link: link
-        });
+        formData.append('title', title);
+        formData.append('content', content);
+        if (parentNode) {
+            formData.append('parentNode', parentNode);
+        }
+        formData.append('date', date);
+        formData.append('link', link);
+        if (image) {
+            formData.append('image', image, image.name);
+        }
+
+        actions.createPost(formData);
     },
     render: function () {
-        var PostBlock = '';
-        var PostSelection = '';
+        var PostBlock = '',
+            PostSelection = '';
 
         if (this.state.postsCollection) {
             PostSelection = this.state.postsCollection.map(function (item) {
@@ -104,10 +121,10 @@ var PostCreate = React.createClass({
         }
 
         PostBlock = (<div className="page__create">
-            <h2>Add Post</h2>
+            <h2>Добавить Запись</h2>
 
             <div className="form form-create">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} id="post">
                     <div className="form__row">
                         <input ref="title"
                                type="text"
@@ -116,6 +133,17 @@ var PostCreate = React.createClass({
                                value={this.state.title}
                                onChange={this.handleChange}
                                placeholder="Заголовок"/>
+                    </div>
+                    <div className="form__row form__row-dropzone">
+                        <Dropzone onDrop={this.onDrop} className="dropzone">
+                            Загрузить картинку
+                        </Dropzone>
+                        {this.state.image.length > 0
+                            ? <div className="dropzone-image">
+                                {this.state.image.map((image) => <img key={image.preview} src={image.preview} /> )}
+                                <span className="form__delete-image" onClick={this.deleteImage}>Delete</span>
+                            </div>
+                            : null}
                     </div>
                     <div className="form__row">
                         <textarea ref="content"
