@@ -71,6 +71,10 @@ module.exports = function (app, passport) {
                 post.date = new Date(req.body.date);
                 post.link = req.body.link;
 
+                if (req.file) {
+                    post.image = req.file.filename;
+                }
+
                 if (req.body.parentNode) {
                     post.parentNode = req.body.parentNode;
                 }
