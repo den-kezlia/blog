@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Logo = React.createClass({
+var Version = React.createClass({
     render: function () {
         return (
             <div className="version">ver 0.2.1</div>
@@ -8,4 +8,4 @@ var Logo = React.createClass({
     }
 });
 
-module.exports = Logo;
+module.exports = Version;

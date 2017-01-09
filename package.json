@@ -3,7 +3,7 @@
   "description": "Blog on nodejs",
   "version": "0.2.1",
   "author": "Den Kezlia <den.kezlia@gmail.com>",
-  "homepage": "http://arche.sounex.com/blog",
+  "homepage": "http://blog.arche.sounex.com",
   "dependencies": {
     "axios": "^0.15.2",
     "bcrypt-nodejs": "latest",
