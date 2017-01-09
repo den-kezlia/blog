@@ -48,33 +48,40 @@ module.exports = function (app, passport) {
     });
 
     app.post('/api/post/edit/:id', isLoggedIn, function (req, res, next) {
-        Posts.findOne({'_id': req.body._id}, function (err, post) {
+        upload(req, res, function(err) {
             if (err) {
-                /*TODO implement error message*/
-                //res.redirect(req.get('referrer'));
+                // TODO implement errors functionality
+                console.log('image error: ', err);
             }
 
-            if (!post) {
-                /*TODO implement not founded post message*/
-                //res.redirect(req.get('referrer'));
-            }
+            Posts.findOne({'_id': req.body._id}, function (err, post) {
+                if (err) {
+                    /*TODO implement error message*/
+                    //res.redirect(req.get('referrer'));
+                }
 
-            post.title = req.body.title;
-            post.content = req.body.content;
-            post.author = req.user._id;
-            post.date = new Date(req.body.date);
-            post.link = req.body.link;
+                if (!post) {
+                    /*TODO implement not founded post message*/
+                    //res.redirect(req.get('referrer'));
+                }
 
-            if (req.body.parentNode) {
-                post.parentNode = req.body.parentNode;
-            }
+                post.title = req.body.title;
+                post.content = req.body.content;
+                post.author = req.user._id;
+                post.date = new Date(req.body.date);
+                post.link = req.body.link;
 
-            post.save(function(err) {
-                if (err)
-                    next();
+                if (req.body.parentNode) {
+                    post.parentNode = req.body.parentNode;
+                }
 
-                res.json({post: post});
-            })
+                post.save(function(err) {
+                    if (err)
+                        next();
+
+                    res.json({post: post});
+                })
+            });
         });
     });
 
