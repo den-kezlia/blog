@@ -6,6 +6,7 @@ var Logo = React.createClass({
         return (
             <div>
                 <Link to='/' className="logo js-link" title='Arche Blog'>
+                    <img className="hidden-element" src="/images/logo.png" alt="Arche Block"/>
                     <span id="home" className="home">
                         <span className="line"></span>
                         <span className="main-cycle cycle"></span>

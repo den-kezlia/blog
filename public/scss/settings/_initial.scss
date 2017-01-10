@@ -40,3 +40,12 @@ p {
         list-style: none;
     }
 }
+
+.hidden-element {
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    margin-top: -1px;
+    opacity: 0;
+    visibility: hidden;
+}

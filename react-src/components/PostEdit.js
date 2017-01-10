@@ -48,7 +48,9 @@ var PostEdit = React.createClass({
         });
         if (this.refs.content) {
             if (!CKEDITOR.instances['content']) {
-                CKEDITOR.replace('content');
+                CKEDITOR.replace('content', {
+                    allowedContent: 'iframe[*]',
+                });
 
                 var _this = this;
                 CKEDITOR.instances['content'].on('change', function () {
