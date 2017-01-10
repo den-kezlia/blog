@@ -7,12 +7,12 @@ var Article = React.createClass({
     render: function () {
         var post = this.props.post;
         var iterator = Util.iterator(this.props.iterator + 1);
-        var imageClass = '';
+        var imageClass = 'no-image';
         var ImageBlock = '';
 
         if (post.image) {
             ImageBlock = (<img src={Util.getImageUrl(post.image)} />);
-            imageClass = 'no-image';
+            imageClass = '';
         }
 
         return (
