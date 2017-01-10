@@ -9,9 +9,12 @@
         float: left;
         text-align: center;
         line-height: 100px;
+        color: $white;
+        border-bottom: none;
 
         &:hover {
             color: $white;
+            border-top: 1px solid $pacific-blue;
         }
 
         &-prev {

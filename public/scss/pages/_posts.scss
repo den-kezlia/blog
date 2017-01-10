@@ -174,11 +174,15 @@
                 padding: 0 20px;
             }
             a {
-
+                border: none;
                 &:hover {
                     text-decoration: underline;
                 }
             }
+        }
+
+        &__image {
+            border: none;
         }
 
         &__text {

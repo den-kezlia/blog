@@ -53,3 +53,16 @@
         }
     }
 }
+
+@mixin link {
+    color: $pacific-blue;
+    outline: none;
+    text-decoration: none;
+    border-bottom: 1px dashed $pacific-blue;
+    transition: $transition-in;
+    &:hover {
+        text-decoration: none;
+        border-bottom: 1px solid $pacific-blue;
+        transition: $transition-out;
+    }
+}
