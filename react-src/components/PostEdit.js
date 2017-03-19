@@ -69,9 +69,7 @@ var PostEdit = React.createClass({
         this.setState({content: content});
     },
     handleChange: function (event) {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
+        this.state[event.target.id] = event.target.value;
     },
     onDrop: function (image) {
         this.setState({

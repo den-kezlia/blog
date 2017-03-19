@@ -12,10 +12,8 @@ var Login = React.createClass({
     },
     mixins: [UserStore.mixin()],
     handleChange: function (event) {
-        this.setState({
-            [event.target.id]: event.target.value,
-            error: ''
-        })
+        this.state[event.target.id] = event.target.value;
+        this.state.error = '';
     },
     handleSubmit: function (event) {
         event.preventDefault();
