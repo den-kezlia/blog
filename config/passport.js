@@ -44,8 +44,7 @@ module.exports = function(passport) {
         usernameField: 'login',
         passwordField: 'password',
         passReqToCallback: true
-    },
-    function(req, login, password, done) {
+    }, function(req, login, password, done) {
         User.findOne({'login': login}, function(err, user) {
             if (err)
                 return done(err);

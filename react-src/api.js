@@ -15,7 +15,7 @@ var API = {
         var login = data.login;
         var password = data.password;
 
-        utilUrl.post('/api/login', [login, password]).then(function (data) {
+        utilUrl.post('/api/login', data).then(function (data) {
             if (typeof data.error !== 'undefined') {
                 // TODO add error Action
                 //_this.setState({error: data.error})
