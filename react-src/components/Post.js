@@ -17,10 +17,10 @@ var Post = React.createClass({
         }
     },
     componentWillReceiveProps: function (prop) {
-        if (this.state.id !== prop.params.id) {
+        if (this.state.link !== prop.params.link) {
             this.setState({
-                id: prop.params.id,
-                post: PostStore.get(prop.params.id)
+                link: prop.params.link,
+                post: PostStore.getByLink(prop.params.link)
             });
         }
     },
