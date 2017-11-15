@@ -11,10 +11,10 @@ var PostStore = require('./store').extend({
             return item.link === link;
         })[0];
     },
-    getNext: function (id) {
+    getNext: function (link) {
         var nextItemNumber = false;
         this._data.map(function (item, iterator) {
-            if (item._id === id) {
+            if (item.link === link) {
                 // '-1' because of sorting by date
                 return nextItemNumber = iterator - 1;
             }
@@ -26,10 +26,10 @@ var PostStore = require('./store').extend({
             return this._data[nextItemNumber];
         }
     },
-    getPrev: function (id) {
+    getPrev: function (link) {
         var nextItemNumber = false;
         this._data.map(function (item, iterator) {
-            if (item._id === id) {
+            if (item.link === link) {
                 // '+1' because of sorting by date
                 return nextItemNumber = iterator + 1;
             }

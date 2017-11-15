@@ -5,17 +5,17 @@ var Link = require('react-router').Link;
 var Footer = React.createClass({
     getInitialState: function () {
         return {
-            id: this.props.id,
-            nextPost: PostStore.getNext(this.props.id),
-            prevPost: PostStore.getPrev(this.props.id)
+            link: this.props.link,
+            nextPost: PostStore.getNext(this.props.link),
+            prevPost: PostStore.getPrev(this.props.link)
         }
     },
     componentWillReceiveProps: function (prop) {
-        if (this.state.id !== prop.id) {
+        if (this.state.link !== prop.link) {
             this.setState({
-                id: prop.id,
-                nextPost: PostStore.getNext(prop.id),
-                prevPost: PostStore.getPrev(prop.id)
+                link: prop.link,
+                nextPost: PostStore.getNext(prop.link),
+                prevPost: PostStore.getPrev(prop.link)
             });
         }
     },
@@ -25,13 +25,15 @@ var Footer = React.createClass({
         var nextLink = '';
 
         if (this.state.prevPost) {
-            prevLink = (<Link to={`/post/${this.state.prevPost._id}`}
-                              className="nav-link nav-link-prev js-bgstyle js-bgstyle__medium">{this.state.prevPost.title}</Link>);
+            prevLink = (<Link to={`/post/${this.state.prevPost.link}`} className="nav-link nav-link-prev js-bgstyle js-bgstyle__medium">
+                            {this.state.prevPost.title}
+                        </Link>);
         }
 
         if (this.state.nextPost) {
-            nextLink = (<Link to={`/post/${this.state.nextPost._id}`}
-                              className="nav-link nav-link-next js-bgstyle js-bgstyle__medium">{this.state.nextPost.title}</Link>);
+            nextLink = (<Link to={`/post/${this.state.nextPost.link}`} className="nav-link nav-link-next js-bgstyle js-bgstyle__medium">
+                            {this.state.nextPost.title}
+                        </Link>);
         }
 
         return (<footer className="footer">

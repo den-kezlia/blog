@@ -60,7 +60,7 @@ var Post = React.createClass({
         return (
             <div>
                 <div className="wrapper page__post" id="wrapper">{PostBlock}</div>
-                <Footer id={this.state.id}/>
+                <Footer link={this.state.link}/>
             </div>
         );
     }
