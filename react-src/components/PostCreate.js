@@ -130,7 +130,6 @@ var PostCreate = React.createClass({
                                type="text"
                                id="title"
                                name="title"
-                               value={this.state.title}
                                onChange={this.handleChange}
                                placeholder="Заголовок"/>
                     </div>
