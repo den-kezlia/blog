@@ -6,6 +6,11 @@ var PostStore = require('./store').extend({
         this.bind(constants.EDITED_POST, this.update);
         this.bind(constants.CREATED_POST, this.add);
     },
+    getByLink: function (link) {
+        return this._data.filter(function (item) {
+            return item.link === link;
+        })[0];
+    },
     getNext: function (id) {
         var nextItemNumber = false;
         this._data.map(function (item, iterator) {

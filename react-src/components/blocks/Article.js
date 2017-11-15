@@ -20,9 +20,9 @@ var Article = React.createClass({
                 <div className="item-line"></div>
                 <div className="item-inner">
                     <h2 className="item__title">
-                        <Link to={`/post/${post._id}`}>{post.title}</Link>
+                        <Link to={`/post/${post.link}`}>{post.title}</Link>
                     </h2>
-                    <Link className={`item__image ${imageClass}`} to={`/post/${post._id}`}>
+                    <Link className={`item__image ${imageClass}`} to={`/post/${post.link}`}>
                         {ImageBlock}
                     </Link>
                     <div className="item__text"

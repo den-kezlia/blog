@@ -9,11 +9,11 @@ var Util = require('../utils/util');
 
 var Post = React.createClass({
     getInitialState: function () {
-        var id = this.props.params.id;
+        var link = this.props.params.link;
 
         return {
-            id: this.props.params.id,
-            post: PostStore.get(id) || false
+            link: this.props.params.link,
+            post: PostStore.getByLink(link) || false
         }
     },
     componentWillReceiveProps: function (prop) {
