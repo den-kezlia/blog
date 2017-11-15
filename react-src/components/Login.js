@@ -49,7 +49,6 @@ var Login = React.createClass({
                                 name="login"
                                 id="login"
                                 placeholder="Login"
-                                value={this.state.login}
                                 onChange={this.handleChange}
                             />
                         </div>
@@ -60,7 +59,6 @@ var Login = React.createClass({
                                 name="password"
                                 id="password"
                                 placeholder="Password"
-                                value={this.state.password}
                                 onChange={this.handleChange}
                             />
                         </div>
