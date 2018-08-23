@@ -10,9 +10,14 @@ var Home = React.createClass({
     },
     mixins: [PostStore.mixin()],
     render: function () {
-        var items = this.state.posts.map(function (post, iterator) {
-            return <Article post={post} key={post._id} iterator={iterator}/>;
-        });
+        if (this.state.posts) {
+            var posts = this.state.posts,
+                postsCount = posts.length;
+            var items = posts.map(function (post, iterator) {
+                var postNumber = postsCount - iterator;
+                return <Article post={post} key={post._id} iterator={postNumber} />;
+            });
+        }
 
         return (
             <div>

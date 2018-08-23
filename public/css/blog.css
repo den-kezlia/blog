@@ -362,8 +362,8 @@ body,
 body {
   background: #272727;
   color: #fff;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 24px;
   font-family: Helvetica, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -523,6 +523,7 @@ textarea {
   padding: 15px 0; }
   .form__row-select select {
     width: 100%; }
+
 .form__row-inline {
   overflow: hidden; }
   .form__row-inline > .form__row {
@@ -530,17 +531,21 @@ textarea {
     width: 50%; }
     .form__row-inline > .form__row:first-child {
       border-right: 2px solid #1f1f1f; }
+
 .form__row-button {
   width: 100%; }
+
 .form__error {
   color: red;
   margin: 10px 0; }
+
 .form__row-dropzone {
   margin: 10px 0; }
   .form__row-dropzone img {
     width: 100%;
     height: auto;
     vertical-align: top; }
+
 .form__delete-image {
   text-indent: -999px;
   height: 24px;
@@ -612,6 +617,7 @@ header {
 
 .footer .nav {
   height: 100%; }
+
 .footer .nav-link {
   width: 50%;
   height: 100%;
@@ -754,6 +760,7 @@ header {
         border-radius: 0 0 40px 40px; }
         .sidebar .logo .center-button.version span {
           margin-top: 100px; } }
+
 @media only screen and (max-width: 767px) {
   .sidebar .logo {
     text-align: center;
@@ -853,11 +860,13 @@ header {
         border-radius: 0 0 20px 20px; }
         .sidebar .logo .center-button.version span {
           margin-top: 100px; } }
+
 .sidebar a {
   color: #fff; }
   .sidebar a:hover {
     color: #008DDE;
     text-decoration: none; }
+
 .sidebar-inner {
   position: absolute;
   left: 0;
@@ -867,6 +876,7 @@ header {
   background: #1f1f1f;
   z-index: 2;
   transition: all 0.2s ease-in; }
+
 .sidebar .menu {
   display: block;
   position: absolute;
@@ -905,6 +915,7 @@ header {
   .sidebar .menu:hover {
     box-shadow: 0 0 2px 1px #008DDE;
     transform: rotate(-90deg); }
+
 .sidebar .version {
   position: absolute;
   top: 20px;
@@ -916,6 +927,7 @@ header {
       top: initial;
       left: 10px;
       bottom: 10px; } }
+
 .sidebar .submenu {
   position: fixed;
   z-index: 1;
@@ -968,17 +980,20 @@ body.menu-active .sidebar-inner {
         transform: rotate(-45deg) translateX(0) translateY(0); }
       body.menu-active .sidebar-inner .menu__line:last-child {
         display: none; }
+
 body.menu-active .submenu {
   top: 60px; }
   @media only screen and (min-width: 768px) {
     body.menu-active .submenu {
       top: inherit; } }
+
 @media only screen and (min-width: 768px) {
   body.menu-active .submenu,
   body.menu-active .wrapper,
   body.menu-active .footer {
     transform: translateX(200px);
     transition: all 0.2s ease-out; } }
+
 body.menu-active .posts__lines {
   transform: translateX(-160px);
   transition: all 0.2s ease-out; }
@@ -1147,7 +1162,7 @@ body.menu-active .posts__lines {
       position: absolute;
       font-family: "Poiret One", cursive;
       font-size: 20px;
-      color: #171717;
+      color: #777;
       top: 20px;
       right: 0;
       padding: 0 20px;
@@ -1279,5 +1294,3 @@ body.menu-active .posts__lines {
 .back {
   margin-top: 20px;
   font-size: 12px; }
-
-/*# sourceMappingURL=blog.css.map */

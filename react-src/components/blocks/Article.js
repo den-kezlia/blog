@@ -6,7 +6,7 @@ var WidgetCount = require('./WidgetCount');
 var Article = React.createClass({
     render: function () {
         var post = this.props.post;
-        var iterator = Util.iterator(this.props.iterator + 1);
+        var iterator = Util.iterator(this.props.iterator);
         var imageClass = 'no-image';
         var ImageBlock = '';
 
@@ -26,10 +26,10 @@ var Article = React.createClass({
                         {ImageBlock}
                     </Link>
                     <div className="item__text"
-                         dangerouslySetInnerHTML={{__html: post.content.slice(0, 500) + ' ...'}}/>
+                        dangerouslySetInnerHTML={{ __html: post.content.slice(0, 1000) }} />
                 </div>
                 <div className="item__iterator">{iterator}</div>
-                <WidgetCount id={post._id}/>
+                <WidgetCount id={post._id} />
             </article>
         );
     }
