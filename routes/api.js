@@ -11,11 +11,11 @@ var storage = multer.diskStorage({
         cb(null, Date.now() + '-' + file.originalname)
     }
 });
-var upload = multer({storage: storage}).single('image');
+var upload = multer({ storage: storage }).single('image');
 
 module.exports = function (app, passport) {
     app.get('/api/posts', function (req, res) {
-        Posts.find().sort({date: -1}).populate({path: 'author', select: '_id, name'}).exec(function(err, items) {
+        Posts.find().sort({ id: -1 }).populate({ path: 'author', select: '_id, name' }).exec(function (err, items) {
             res.json(items);
         });
     });
@@ -26,15 +26,15 @@ module.exports = function (app, passport) {
                 return next(err);
             }
             if (!user) {
-                return res.json({error: 'user not found'});
+                return res.json({ error: 'user not found' });
             }
 
-            req.logIn(user, function(err) {
+            req.logIn(user, function (err) {
                 if (err) {
                     return next(err);
                 }
 
-                res.json({user: Utils.makeUserSafe(user)});
+                res.json({ user: Utils.makeUserSafe(user) });
             });
         })(req, res, next);
     });
@@ -42,19 +42,19 @@ module.exports = function (app, passport) {
     app.get('/api/getUser', function (req, res, next) {
         var user = req.user;
         if (user) {
-            user =  Utils.makeUserSafe(user);
+            user = Utils.makeUserSafe(user);
         }
         res.json([user]);
     });
 
     app.post('/api/post/edit/:id', isLoggedIn, function (req, res, next) {
-        upload(req, res, function(err) {
+        upload(req, res, function (err) {
             if (err) {
                 // TODO implement errors functionality
                 console.log('image error: ', err);
             }
 
-            Posts.findOne({'_id': req.body._id}, function (err, post) {
+            Posts.findOne({ '_id': req.body._id }, function (err, post) {
                 if (err) {
                     /*TODO implement error message*/
                     //res.redirect(req.get('referrer'));
@@ -79,11 +79,11 @@ module.exports = function (app, passport) {
                     post.parentNode = req.body.parentNode;
                 }
 
-                post.save(function(err) {
+                post.save(function (err) {
                     if (err)
                         next();
 
-                    res.json({post: post});
+                    res.json({ post: post });
                 })
             });
         });
@@ -91,7 +91,7 @@ module.exports = function (app, passport) {
 
     app.post('/api/post/create', isLoggedIn, function (req, res, next) {
 
-        upload(req, res, function(err) {
+        upload(req, res, function (err) {
             if (err) {
                 // TODO implement errors functionality
                 console.log('image error: ', err);
@@ -110,13 +110,13 @@ module.exports = function (app, passport) {
                 post.parentNode = req.body.parentNode;
             }
 
-            post.save(function(err) {
+            post.save(function (err) {
                 if (err)
                     next();
 
-                res.json({post: post});
+                res.json({ post: post });
             });
-         });
+        });
     });
 };
 
@@ -124,5 +124,5 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
 
-    res.json({error: 'Not Auth'});
+    res.json({ error: 'Not Auth' });
 }
