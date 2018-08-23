@@ -475,12 +475,90 @@ textarea {
   width: 100%;
   outline: none;
   transition: all 0.3s; }
-  input[type="text"]:focus,
+  input[type="text"].textarea input[type="text"]:focus,
+  input[type="tel"].textarea input[type="text"]:focus,
+  input[type="email"].textarea input[type="text"]:focus,
+  input[type="number"].textarea input[type="text"]:focus,
+  input[type="password"].textarea input[type="text"]:focus,
+  input[type="date"].textarea input[type="text"]:focus,
+  textarea.textarea input[type="text"]:focus, input[type="text"].textarea
   input[type="tel"]:focus,
+  input[type="tel"].textarea
+  input[type="tel"]:focus,
+  input[type="email"].textarea
+  input[type="tel"]:focus,
+  input[type="number"].textarea
+  input[type="tel"]:focus,
+  input[type="password"].textarea
+  input[type="tel"]:focus,
+  input[type="date"].textarea
+  input[type="tel"]:focus,
+  textarea.textarea
+  input[type="tel"]:focus, input[type="text"].textarea
   input[type="email"]:focus,
+  input[type="tel"].textarea
+  input[type="email"]:focus,
+  input[type="email"].textarea
+  input[type="email"]:focus,
+  input[type="number"].textarea
+  input[type="email"]:focus,
+  input[type="password"].textarea
+  input[type="email"]:focus,
+  input[type="date"].textarea
+  input[type="email"]:focus,
+  textarea.textarea
+  input[type="email"]:focus, input[type="text"].textarea
   input[type="number"]:focus,
+  input[type="tel"].textarea
+  input[type="number"]:focus,
+  input[type="email"].textarea
+  input[type="number"]:focus,
+  input[type="number"].textarea
+  input[type="number"]:focus,
+  input[type="password"].textarea
+  input[type="number"]:focus,
+  input[type="date"].textarea
+  input[type="number"]:focus,
+  textarea.textarea
+  input[type="number"]:focus, input[type="text"].textarea
   input[type="password"]:focus,
+  input[type="tel"].textarea
+  input[type="password"]:focus,
+  input[type="email"].textarea
+  input[type="password"]:focus,
+  input[type="number"].textarea
+  input[type="password"]:focus,
+  input[type="password"].textarea
+  input[type="password"]:focus,
+  input[type="date"].textarea
+  input[type="password"]:focus,
+  textarea.textarea
+  input[type="password"]:focus, input[type="text"].textarea
   input[type="date"]:focus,
+  input[type="tel"].textarea
+  input[type="date"]:focus,
+  input[type="email"].textarea
+  input[type="date"]:focus,
+  input[type="number"].textarea
+  input[type="date"]:focus,
+  input[type="password"].textarea
+  input[type="date"]:focus,
+  input[type="date"].textarea
+  input[type="date"]:focus,
+  textarea.textarea
+  input[type="date"]:focus, input[type="text"].textarea
+  textarea:focus,
+  input[type="tel"].textarea
+  textarea:focus,
+  input[type="email"].textarea
+  textarea:focus,
+  input[type="number"].textarea
+  textarea:focus,
+  input[type="password"].textarea
+  textarea:focus,
+  input[type="date"].textarea
+  textarea:focus,
+  textarea.textarea
   textarea:focus {
     border-bottom: none;
     color: #fff; }

@@ -35,6 +35,10 @@ textarea {
     outline: none;
     transition: all 0.3s;
 
+    &.cke_source:focus {
+        color: $nero;
+    }
+
     &:focus {
         border-bottom: none;
         color: $white;

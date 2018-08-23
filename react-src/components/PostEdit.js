@@ -49,7 +49,7 @@ var PostEdit = React.createClass({
         if (this.refs.content) {
             if (!CKEDITOR.instances['content']) {
                 CKEDITOR.replace('content', {
-                    allowedContent: 'iframe[*]',
+                    allowedContent: 'iframe[*];p(*)[*]{*};div(*)[*]{*}',
                 });
 
                 var _this = this;
@@ -63,10 +63,10 @@ var PostEdit = React.createClass({
         CKEDITOR.instances['content'].destroy(true);
     },
     setDate: function (date) {
-        this.setState({date: date});
+        this.setState({ date: date });
     },
     setContent: function (content) {
-        this.setState({content: content});
+        this.setState({ content: content });
     },
     handleChange: function (event) {
         this.state[event.target.id] = event.target.value;
@@ -96,13 +96,13 @@ var PostEdit = React.createClass({
         var formData = new FormData();
 
         if (!title) {
-            this.setState({error: 'Заголовок не может быть пустым.'});
+            this.setState({ error: 'Заголовок не может быть пустым.' });
 
             return;
         }
 
         if (!content) {
-            this.setState({error: 'Тело статьи не может быть пустым'});
+            this.setState({ error: 'Тело статьи не может быть пустым' });
 
             return;
         }
@@ -132,8 +132,8 @@ var PostEdit = React.createClass({
             var PostSelection = this.state.postsCollection.map(function (item) {
                 if (item._id !== post._id) {
                     return (<option key={item._id}
-                                    value={item._id}
-                                    selected={item._id === post.parentNode}>{item.title}</option>);
+                        value={item._id}
+                        selected={item._id === post.parentNode}>{item.title}</option>);
                 }
             });
 
@@ -143,12 +143,12 @@ var PostEdit = React.createClass({
                 <form className="form form-create" onSubmit={this.handleSubmit}>
                     <div className="form__row">
                         <input ref="title"
-                               type="text"
-                               id="title"
-                               name="title"
-                               value={this.state.title}
-                               onChange={this.handleChange}
-                               placeholder="Заголовок"/>
+                            type="text"
+                            id="title"
+                            name="title"
+                            value={this.state.title}
+                            onChange={this.handleChange}
+                            placeholder="Заголовок" />
                     </div>
                     <div className="form__row form__row-dropzone">
                         <Dropzone onDrop={this.onDrop} className="dropzone">
@@ -158,29 +158,29 @@ var PostEdit = React.createClass({
                             ? <div className="dropzone-image">
                                 <img src={Util.getImageUrl(this.state.image)} />
                                 <span className="form__delete-image" onClick={this.deleteImage}>Delete</span>
-                              </div>
+                            </div>
                             : null}
                         {(this.state.image.length > 0) && (this.state.imageChanged)
                             ? <div className="dropzone-image">
-                                {this.state.image.map((image) => <img key={image.preview} src={image.preview} /> )}
+                                {this.state.image.map((image) => <img key={image.preview} src={image.preview} />)}
                                 <span className="form__delete-image" onClick={this.deleteImage}>Delete</span>
-                              </div>
+                            </div>
                             : null}
                     </div>
                     <div className="form__row">
                         <textarea ref="content"
-                                  className="ckeditor"
-                                  id="content"
-                                  name="content"
-                                  value={this.state.content}
-                                  onChange={this.handleChange}/>
+                            className="ckeditor"
+                            id="content"
+                            name="content"
+                            value={this.state.content}
+                            onChange={this.handleChange} />
                     </div>
                     <div className="form__row form__row-select">
                         <select ref="parentNode"
-                                name="parent"
-                                id="parent"
-                                selected={this.state.parent}
-                                onChange={this.handleChange}>
+                            name="parent"
+                            id="parent"
+                            selected={this.state.parent}
+                            onChange={this.handleChange}>
                             <option>Родительская Статья - Выбрать</option>
                             {PostSelection}
                         </select>
@@ -188,22 +188,22 @@ var PostEdit = React.createClass({
                     <div className="form__row-inline">
                         <div className="form__row">
                             <input ref="date"
-                                   type="text"
-                                   className="js-date-picker"
-                                   name="date"
-                                   id="date"
-                                   value={this.state.date}
-                                   onChange={this.handleChange}
-                                   placeholder="Дата создания"/>
+                                type="text"
+                                className="js-date-picker"
+                                name="date"
+                                id="date"
+                                value={this.state.date}
+                                onChange={this.handleChange}
+                                placeholder="Дата создания" />
                         </div>
                         <div className="form__row">
                             <input ref="link"
-                                   type="text"
-                                   name="link"
-                                   id="link"
-                                   value={this.state.link}
-                                   onChange={this.handleChange}
-                                   placeholder="Link Alias"/>
+                                type="text"
+                                name="link"
+                                id="link"
+                                value={this.state.link}
+                                onChange={this.handleChange}
+                                placeholder="Link Alias" />
                         </div>
                     </div>
                     <div className="form__error">{this.state.error}</div>
