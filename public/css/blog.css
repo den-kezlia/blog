@@ -383,6 +383,8 @@ a {
 
 p {
   text-indent: 20px; }
+  p.no-indent {
+    text-indent: 0; }
 
 .ul__no-style {
   margin: 0;

@@ -29,6 +29,10 @@ a {
 
 p {
     text-indent: 20px;
+
+    &.no-indent {
+        text-indent: 0;
+    }
 }
 
 .ul__no-style {
