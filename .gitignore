@@ -1,5 +1,8 @@
 .idea
+.vscode
 /public/images/uploads/
+.DS_Store
+package-lock.json
 
 ### Node template
 # Logs
